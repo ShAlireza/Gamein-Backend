@@ -15,8 +15,8 @@ from .serializers import UserSignUpSerializer
 class LogoutAPIView(GenericAPIView):
     permission_classes = (IsAuthenticated,)
 
-    def post(self):
-        self.request.auth_token.delete()
+    def post(self, request):
+        request.user.auth_token.delete()
         return Response(status=status.HTTP_200_OK)
 
 
