@@ -23,10 +23,10 @@ class LogoutAPIView(GenericAPIView):
 class SignUpAPIView(GenericAPIView):
     serializer_class = UserSignUpSerializer
 
-    def post(self):
+    def post(self, request):
         from .services.send_verification_email import send_verification_email
 
-        serializer = self.get_serializer(self.request.data)
+        serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
         send_date = timezone.now() + timezone.timedelta(seconds=5)
@@ -39,7 +39,7 @@ class SignUpAPIView(GenericAPIView):
         serializer.save()
 
         return Response(
-            data={_('details'): _('Activation email sent, check your email')},
+            data={'details': _('Activation email sent, check your email')},
             status=status.HTTP_200_OK
         )
 

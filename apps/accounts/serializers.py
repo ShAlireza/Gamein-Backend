@@ -18,25 +18,29 @@ class UserSignUpSerializer(serializers.ModelSerializer):
 
     email = serializers.EmailField(
         validators=[UniqueValidator(queryset=User.objects.all())])
+    first_name = serializers.CharField(max_length=30, required=True)
+    last_name = serializers.CharField(max_length=150, required=True)
 
-    password_1 = serializers.CharField(style={'input_type': 'password'})
-    password_2 = serializers.CharField(style={'input_type': 'password'})
+    password = serializers.CharField(style={'input_type': 'password'})
+    password_repeat = serializers.CharField(style={'input_type': 'password'})
 
     class Meta:
         model = User
-        fields = ('email', 'password_1', 'password_2', 'profile')
+        fields = (
+            'first_name', 'last_name', 'email', 'password', 'password_repeat',
+            'profile')
 
     def validate(self, data):
-        if data['password_1'] != data['password_2']:
+        if data['password'] != data['password_repeat']:
             raise serializers.ValidationError('passwords don\'t match!')
         return data
 
     def create(self, validated_data):
         validated_data['username'] = validated_data['email']
         profile_data = validated_data.pop('profile')
-        validated_data.pop('password_1')
+        validated_data.pop('password_repeat')
         validated_data['password'] = make_password(
-            validated_data.pop('password_2'))
+            validated_data.pop('password'))
         validated_data['is_active'] = False
 
         user = User.objects.create(**validated_data)
