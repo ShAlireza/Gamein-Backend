@@ -67,6 +67,10 @@ class ResendActivationEmailAPIView(GenericAPIView):
         )
 
 
+class ActivateAccountAPIView(GenericAPIView):
+    pass
+
+
 class ResetPasswordAPIView(GenericAPIView):
     serializer_class = EmailSerializer
 
