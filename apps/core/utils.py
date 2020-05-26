@@ -1,30 +1,8 @@
-from django.db import models
 from django.conf import settings
 
 
-def object_exists(model: models.Model, limitations=None, **kwargs) -> bool:
-    """
-        This util function check if an object with given details
-        exists in database or not
-
-    :param model:
-    :param limitations:
-    :param kwargs:
-    :return:
-    """
-    if limitations:
-        kwargs = {k: v for k, v in kwargs if k in limitations}
-        if not kwargs:
-            return False
-
-    available_field_names = [field.name for field in model._meta.fields]
-    for field in kwargs:
-        if field not in available_field_names:
-            return False
-    return model.objects.filter(**kwargs).exists()
-
-
-def send_email(subject, template_name, context, from_email=settings.EMAIL,
+def send_email(subject, template_name, context,
+               from_email=settings.EMAIL_HOST_USER,
                receipts=None, file_path=None, file_name=None,
                file_content=None, mime_type=None):
     from django.core.mail.message import EmailMultiAlternatives
@@ -52,11 +30,3 @@ def send_email(subject, template_name, context, from_email=settings.EMAIL,
                      mimetype=mime_type)
 
     email.send()
-
-
-def generate_n_digit_random_number(digits_count):
-    from secrets import choice
-    lower_bound = 10 ** (digits_count - 1)
-    upper_bound = 10 ** digits_count
-
-    return choice(range(lower_bound, upper_bound))

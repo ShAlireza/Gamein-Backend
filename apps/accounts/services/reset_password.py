@@ -9,7 +9,7 @@ from django.utils.http import urlsafe_base64_encode
 from ..models import ResetPasswordToken
 from gamein_backend.celery import app
 
-__all__ = ('reset_password',)
+__all__ = ('ResetPassword',)
 
 
 class ResetPassword:
@@ -53,16 +53,6 @@ class ResetPassword:
         send_email(
             subject=f'Reset password in {"Gamein Challenge"}',
             template_name='accounts/user_reset_password.html',
-            context=context
+            context=context,
+            receipts=[self.user.email]
         )
-
-
-@app.task(name='reset_password')
-def reset_password(user_id: int) -> None:
-    try:
-        user = User.objects.get(id=user_id)
-    except User.DoesNotExist:
-        pass
-    else:
-        reset_password_service = ResetPassword(user=user)
-        reset_password_service.reset_password()
