@@ -1,12 +1,14 @@
+from django.contrib.auth.models import User
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from rest_framework.generics import GenericAPIView
+from rest_framework.generics import GenericAPIView, get_object_or_404
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 
-from .serializers import UserSignUpSerializer, EmailSerializer
+from .serializers import (UserSignUpSerializer, EmailSerializer,
+                          ResetPasswordConfirmSerializer)
 
 
 # Create your views here.
@@ -24,14 +26,14 @@ class SignUpAPIView(GenericAPIView):
     serializer_class = UserSignUpSerializer
 
     def post(self, request):
-        from .services.send_verification_email import send_verification_email
+        from .services.send_verification_email import send_activation_email
 
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
         send_date = timezone.now() + timezone.timedelta(seconds=5)
 
-        send_verification_email.apply_async(
+        send_activation_email.apply_async(
             [serializer.validated_data['email']],
             eta=send_date
         )
@@ -48,15 +50,14 @@ class ResendActivationEmailAPIView(GenericAPIView):
     serializer_class = EmailSerializer
 
     def post(self, request):
-        from .services.send_verification_email import send_verification_email
+        from .services.send_verification_email import send_activation_email
 
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+        data = self.get_serializer(data=request.data).data
+        user = get_object_or_404(User, email=data['email'])
 
         send_date = timezone.now() + timezone.timedelta(seconds=5)
-
-        send_verification_email.apply_async(
-            [serializer.validated_data['email']],
+        send_activation_email.apply_async(
+            [user.email],
             eta=send_date
         )
 
@@ -67,4 +68,28 @@ class ResendActivationEmailAPIView(GenericAPIView):
 
 
 class ResetPasswordAPIView(GenericAPIView):
-    pass
+    serializer_class = EmailSerializer
+
+    def post(self, request):
+        from .services.reset_password import reset_password
+
+        data = self.get_serializer(request.data).data
+        user = get_object_or_404(User, email=data['email'])
+
+        send_date = timezone.now() + timezone.timedelta(seconds=5)
+        reset_password.apply_async(
+            [user.id],
+            eta=send_date
+        )
+
+        return Response(
+            data={'details': _('Reset password email sent, check your email')},
+            status=status.HTTP_200_OK
+        )
+
+
+class ResetPasswordConfirmAPIView(GenericAPIView):
+    serializer_class = ResetPasswordConfirmSerializer
+
+    def post(self):
+        pass

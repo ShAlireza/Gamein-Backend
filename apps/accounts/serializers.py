@@ -2,6 +2,7 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 
 from rest_framework import serializers
+from rest_framework.generics import get_object_or_404
 from rest_framework.validators import UniqueValidator
 
 from .models import Profile, ResetPasswordToken
@@ -52,13 +53,8 @@ class UserSignUpSerializer(serializers.ModelSerializer):
 class EmailSerializer(serializers.Serializer):
     email = serializers.EmailField()
 
-    def validate(self, attrs):
-        if not User.objects.filter(email=attrs['email']).exists():
-            raise serializers.ValidationError('email not exists')
-        return attrs
 
-
-class ResetPasswordSerializer(serializers.ModelSerializer):
+class ResetPasswordConfirmSerializer(serializers.ModelSerializer):
     password = serializers.CharField(max_length=100)
     password_repeat = serializers.CharField(max_length=100)
 
