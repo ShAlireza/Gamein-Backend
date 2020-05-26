@@ -41,5 +41,6 @@ class SendActivationEmail:
         send_email(
             subject=f'Account activation in {"Gamein Challenge"}',
             template_name='accounts/activation_email.html',
-            context=context
+            context=context,
+            receipts=[self.email]
         )

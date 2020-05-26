@@ -1,7 +1,8 @@
 from django.conf import settings
 
 
-def send_email(subject, template_name, context, from_email=settings.EMAIL,
+def send_email(subject, template_name, context,
+               from_email=settings.EMAIL_HOST_USER,
                receipts=None, file_path=None, file_name=None,
                file_content=None, mime_type=None):
     from django.core.mail.message import EmailMultiAlternatives

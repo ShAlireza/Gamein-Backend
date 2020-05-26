@@ -53,5 +53,6 @@ class ResetPassword:
         send_email(
             subject=f'Reset password in {"Gamein Challenge"}',
             template_name='accounts/user_reset_password.html',
-            context=context
+            context=context,
+            receipts=[self.user.email]
         )
