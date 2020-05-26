@@ -21,5 +21,7 @@ class ResetPasswordToken(models.Model):
 
 
 class ActivateUserToken(models.Model):
+    EXPIRATION_TIME = 24 * 60 * 60
+
     token = models.CharField(max_length=128)
     eid = models.CharField(max_length=128, null=True)

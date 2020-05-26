@@ -6,7 +6,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 
-from .serializers import UserSignUpSerializer
+from .serializers import UserSignUpSerializer, EmailSerializer
 
 
 # Create your views here.
@@ -45,4 +45,26 @@ class SignUpAPIView(GenericAPIView):
 
 
 class ResendActivationEmailAPIView(GenericAPIView):
+    serializer_class = EmailSerializer
+
+    def post(self, request):
+        from .services.send_verification_email import send_verification_email
+
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        send_date = timezone.now() + timezone.timedelta(seconds=5)
+
+        send_verification_email.apply_async(
+            [serializer.validated_data['email']],
+            eta=send_date
+        )
+
+        return Response(
+            data={'details': _('Activation email sent, check your email')},
+            status=status.HTTP_200_OK
+        )
+
+
+class ResetPasswordAPIView(GenericAPIView):
     pass
