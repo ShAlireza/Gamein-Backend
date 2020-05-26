@@ -12,6 +12,7 @@ class Profile(models.Model):
     university = models.CharField(max_length=64)
     birth_date = models.DateField()
     phone_number = models.CharField(max_length=32)
+    # major = models.CharField(max_length=128)
 
 
 class ResetPasswordToken(models.Model):

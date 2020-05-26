@@ -26,7 +26,7 @@ class SignUpAPIView(GenericAPIView):
     serializer_class = UserSignUpSerializer
 
     def post(self, request):
-        from .services.send_verification_email import send_activation_email
+        from .tasks import send_activation_email
 
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -50,7 +50,7 @@ class ResendActivationEmailAPIView(GenericAPIView):
     serializer_class = EmailSerializer
 
     def post(self, request):
-        from .services.send_verification_email import send_activation_email
+        from .tasks import send_activation_email
 
         data = self.get_serializer(data=request.data).data
         user = get_object_or_404(User, email=data['email'])
@@ -71,7 +71,7 @@ class ResetPasswordAPIView(GenericAPIView):
     serializer_class = EmailSerializer
 
     def post(self, request):
-        from .services.reset_password import reset_password
+        from .tasks import reset_password
 
         data = self.get_serializer(request.data).data
         user = get_object_or_404(User, email=data['email'])
@@ -92,13 +92,15 @@ class ResetPasswordConfirmAPIView(GenericAPIView):
     serializer_class = ResetPasswordConfirmSerializer
 
     def post(self, request):
-        from .services.reset_password_confirm import reset_password_confirm
+        from .tasks import reset_password_confirm
 
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         data = serializer.validated_data
 
-        reset_password_confirm(data['uid'], data['token'], data['password'])
+        reset_password_confirm.apply_async(
+            [data['uid'], data['token'], data['password']]
+        )
 
         return Response(
             data={'details': _('Password changed successfully')},

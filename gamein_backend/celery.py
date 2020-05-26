@@ -8,11 +8,13 @@ from celery.signals import setup_logging
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gamein_backend.settings')
 
-app = Celery('gamein_backend')
+app = Celery('gamein_backend', broker='amqp://localhost:5672')
 app.config_from_object('django.conf:settings', namespace='CELERY')
-app.autodiscover_tasks()
 
 
 @setup_logging.connect
 def config_loggers(*args, **kwargs):
     dictConfig(settings.LOGGING)
+
+
+app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)

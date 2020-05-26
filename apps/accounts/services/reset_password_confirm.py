@@ -6,7 +6,7 @@ from rest_framework.generics import get_object_or_404
 from ..models import ResetPasswordToken
 from ..exceptions import TokenExpired
 
-__all__ = ('reset_password_confirm',)
+__all__ = ('ResetPasswordConfirm',)
 
 
 class ResetPasswordConfirm:
@@ -38,10 +38,3 @@ class ResetPasswordConfirm:
 
         user.set_password(self.password)
         user.save()
-
-
-def reset_password_confirm(uid: str, token: str, password: str) -> None:
-    reset_password_confirm_service = ResetPasswordConfirm(
-        uid, token, password
-    )
-    reset_password_confirm_service.reset_password_confirm()
