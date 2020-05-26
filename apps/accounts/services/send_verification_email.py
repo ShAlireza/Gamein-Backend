@@ -8,7 +8,7 @@ from gamein_backend.celery import app
 
 from ..models import ActivateUserToken
 
-__all__ = ('send_verification_email',)
+__all__ = ('send_activation_email',)
 
 
 class SendActivationEmail:
@@ -16,7 +16,7 @@ class SendActivationEmail:
         self.email: str = email
         self._activation_token: Union[None, ActivateUserToken] = None
 
-    def send_activation_email(self):
+    def send_activation_email(self) -> None:
         self._create_activation_token()
         self._send_email()
         pass
@@ -46,6 +46,6 @@ class SendActivationEmail:
 
 
 @app.task(name='send_verification_email')
-def send_verification_email(user_email: str) -> None:
-    send_verification_service = SendActivationEmail(user_email)
-    send_verification_service.send_activation_email()
+def send_activation_email(user_email: str) -> None:
+    send_activiation_email_service = SendActivationEmail(user_email)
+    send_activiation_email_service.send_activation_email()

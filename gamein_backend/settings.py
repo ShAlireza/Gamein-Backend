@@ -132,3 +132,4 @@ REST_FRAMEWORK = {
 }
 
 DOMAIN = config('DOMAIN')
+EMAIL = config('EMAIL')

@@ -15,9 +15,17 @@ class Profile(models.Model):
 
 
 class ResetPasswordToken(models.Model):
+    EXPIRATION_TIME = 24 * 60 * 60
+
     uid = models.CharField(max_length=128)
     token = models.CharField(max_length=128)
     expiration_date = models.DateField()
+
+    expired = models.BooleanField(default=False)
+
+    def make_expired(self):
+        self.expired = True
+        self.save()
 
 
 class ActivateUserToken(models.Model):

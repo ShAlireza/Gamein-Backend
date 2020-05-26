@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 def object_exists(model: models.Model, limitations=None, **kwargs) -> bool:
@@ -23,7 +24,7 @@ def object_exists(model: models.Model, limitations=None, **kwargs) -> bool:
     return model.objects.filter(**kwargs).exists()
 
 
-def send_email(subject, template_name, context, from_email='Art-Online',
+def send_email(subject, template_name, context, from_email=settings.EMAIL,
                receipts=None, file_path=None, file_name=None,
                file_content=None, mime_type=None):
     from django.core.mail.message import EmailMultiAlternatives
