@@ -91,5 +91,16 @@ class ResetPasswordAPIView(GenericAPIView):
 class ResetPasswordConfirmAPIView(GenericAPIView):
     serializer_class = ResetPasswordConfirmSerializer
 
-    def post(self):
-        pass
+    def post(self, request):
+        from .services.reset_password_confirm import reset_password_confirm
+
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        data = serializer.validated_data
+
+        reset_password_confirm(data['uid'], data['token'], data['password'])
+
+        return Response(
+            data={'details': _('Password changed successfully')},
+            status=status.HTTP_200_OK
+        )

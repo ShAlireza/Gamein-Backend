@@ -6,6 +6,7 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.validators import UniqueValidator
 
 from .models import Profile, ResetPasswordToken
+from .exceptions import PasswordsNotMatch
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -33,7 +34,7 @@ class UserSignUpSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         if data['password'] != data['password_repeat']:
-            raise serializers.ValidationError('passwords don\'t match!')
+            raise PasswordsNotMatch()
         return data
 
     def create(self, validated_data):
@@ -64,5 +65,6 @@ class ResetPasswordConfirmSerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         if attrs['password'] != attrs['password_repeat']:
-            raise serializers.ValidationError('passwords don\'t match!')
+            raise PasswordsNotMatch()
+
         return attrs

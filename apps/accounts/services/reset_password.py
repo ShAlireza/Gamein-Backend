@@ -19,19 +19,19 @@ class ResetPassword:
         self.uid: str = urlsafe_base64_encode(force_bytes(user.id))
         self._reset_password_token: Union[None, ResetPasswordToken] = None
 
-    def reset_password(self):
+    def reset_password(self) -> None:
         self._cancel_previous_tokens()
         self._create_reset_password_token()
         self._send_email()
 
-    def _cancel_previous_tokens(self):
+    def _cancel_previous_tokens(self) -> None:
         (ResetPasswordToken.objects.
          filter(self.uid).
          filter(expired=False).
          update(expired=True)
          )
 
-    def _create_reset_password_token(self):
+    def _create_reset_password_token(self) -> None:
         self._reset_password_token = ResetPasswordToken.objects.create(
             uid=self.uid,
             token=secrets.token_urlsafe(32),
@@ -39,7 +39,7 @@ class ResetPassword:
                 seconds=ResetPasswordToken.EXPIRATION_TIME)
         )
 
-    def _send_email(self):
+    def _send_email(self) -> None:
         from django.conf import settings
         from apps.core.utils import send_email
 
@@ -58,7 +58,7 @@ class ResetPassword:
 
 
 @app.task(name='reset_password')
-def reset_password(user_id: int):
+def reset_password(user_id: int) -> None:
     try:
         user = User.objects.get(id=user_id)
     except User.DoesNotExist:

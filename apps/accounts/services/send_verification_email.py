@@ -16,7 +16,7 @@ class SendActivationEmail:
         self.email: str = email
         self._activation_token: Union[None, ActivateUserToken] = None
 
-    def send_activation_email(self):
+    def send_activation_email(self) -> None:
         self._create_activation_token()
         self._send_email()
         pass

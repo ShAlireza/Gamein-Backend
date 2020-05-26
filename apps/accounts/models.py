@@ -23,6 +23,10 @@ class ResetPasswordToken(models.Model):
 
     expired = models.BooleanField(default=False)
 
+    def make_expired(self):
+        self.expired = True
+        self.save()
+
 
 class ActivateUserToken(models.Model):
     token = models.CharField(max_length=128)
