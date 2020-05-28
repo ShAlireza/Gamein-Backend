@@ -48,6 +48,12 @@ class Statistics(models.Model):
     icon = models.ImageField(upload_to='stat_icons')
 
 
+class Social(models.Model):
+    name = models.CharField(max_length=100, blank=True)
+    url = models.URLField()
+    icon = models.ImageField(upload_to='social_icons')
+
+
 
 
 

@@ -55,3 +55,10 @@ class StatisticsAdmin(admin.ModelAdmin):
     list_display = ('title', 'stat', 'icon')
     list_editable = ('icon', )
     search_fields = ['title']
+
+
+@admin.register(Social)
+class SocialAdmin(admin.ModelAdmin):
+    list_display = ('name', 'url', 'icon')
+    list_editable = ('url', 'icon')
+    search_fields = ['name']
