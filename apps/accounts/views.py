@@ -9,7 +9,8 @@ from rest_framework import status
 
 from .serializers import (UserSignUpSerializer, EmailSerializer,
                           ResetPasswordConfirmSerializer,
-                          ActivateUserTokenSerializer)
+                          ActivateUserTokenSerializer,
+                          ChangePasswordSerializer)
 
 
 # Create your views here.
@@ -122,6 +123,21 @@ class ResetPasswordConfirmAPIView(GenericAPIView):
             password=data['password']
         )
         reset_password_confirm_service.reset_password_confirm()
+
+        return Response(
+            data={'details': _('Password changed successfully')},
+            status=status.HTTP_200_OK
+        )
+
+
+class ChangePasswordAPIView(GenericAPIView):
+    serializer_class = ChangePasswordSerializer
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
 
         return Response(
             data={'details': _('Password changed successfully')},
