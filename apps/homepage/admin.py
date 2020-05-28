@@ -14,9 +14,14 @@ class WinnerAdmin(admin.ModelAdmin):
     list_display = ('title', 'award')
 
 
+class QuoteAdmin(admin.ModelAdmin):
+    list_display = ('quoter', 'context')
+
+
 admin.site.register(Staff, StaffAdmin)
 admin.site.register(Sponsor, SponsorAdmin)
 admin.site.register(Winner, WinnerAdmin)
+admin.site.register(Quote, QuoteAdmin)
 
 
 

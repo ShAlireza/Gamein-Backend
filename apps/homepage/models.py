@@ -26,10 +26,16 @@ class Sponsor(models.Model):
 
 
 class Winner(models.Model):
-
     title = models.CharField(max_length=100)
     award = models.CharField(max_length=50)
     color = models.CharField(max_length=50)
+
+
+class Quote(models.Model):
+    quoter = models.CharField(max_length=100)
+    context = models.TextField()
+
+
 
 
 
