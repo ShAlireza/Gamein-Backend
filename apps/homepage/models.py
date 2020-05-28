@@ -10,9 +10,9 @@ class Staff(models.Model):
     team = models.CharField(max_length=64, choices=TeamNames.choices)
     name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
-    picture = models.ImageField(upload_to="staff_pictures")
-    role = models.CharField(max_length=20)
-    linked_in_url = models.URLField('Linked-in')
+    picture = models.ImageField(upload_to="staff_pictures", default='staff_pictures/profile.jpg', blank=True)
+    role = models.CharField(max_length=20, blank=True)
+    linked_in_url = models.URLField('Linked-in', blank=True)
 
 
 class Sponsor(models.Model):
@@ -32,7 +32,7 @@ class Winner(models.Model):
 
 
 class Quote(models.Model):
-    quoter = models.CharField(max_length=100)
+    quoter = models.CharField(max_length=100, default='ناشناس')
     context = models.TextField()
 
 

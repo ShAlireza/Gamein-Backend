@@ -5,16 +5,12 @@ from .models import *
 
 @admin.register(Staff)
 class StaffAdmin(admin.ModelAdmin):
-    list_display = ('last_name', 'name', 'team', 'role', 'picture', 'show_linked_in_url')
+    list_display = ('last_name', 'name', 'team', 'role', 'picture', 'linked_in_url')
     list_display_links = ('last_name', )
-    list_editable = ('team',)
+    list_editable = ('team','picture', 'linked_in_url')
     list_filter = ('team', 'role')
     search_fields = ['last_name', 'name', 'team', 'role']
 
-    def show_linked_in_url(self, obj):
-        return format_html('<a href="%s">%s</a>' % (obj.linked_in_url, obj.name + "'s LinkedIn"))
-    show_linked_in_url.allow_tags = True
-    show_linked_in_url.short_description = 'Linked-In'
 
 
 @admin.register(Sponsor)
@@ -22,7 +18,10 @@ class SponsorAdmin(admin.ModelAdmin):
     list_display = ('name', 'sponsor_class', 'picture', 'show_website')
     list_editable = ('sponsor_class',)
     def show_website(self, obj):
-        return format_html('<a href="%s">%s</a>' % (obj.site_url, obj.name + "'s Website"))
+        if obj.site_url:
+            return format_html('<a href="%s">%s</a>' % (obj.site_url, obj.name + "'s Website"))
+        else:
+            return ''
     show_website.allow_tags = True
     show_website.short_description = 'Website'
     list_filter = ['sponsor_class']

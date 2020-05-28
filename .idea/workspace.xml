@@ -36,6 +36,11 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/media/staff_pictures" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python.manage">
     <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Gamein-Backend" />
@@ -102,7 +107,7 @@
       <workItem from="1590650893318" duration="29000" />
       <workItem from="1590650959358" duration="512000" />
       <workItem from="1590651515630" duration="89000" />
-      <workItem from="1590651628137" duration="10391000" />
+      <workItem from="1590651628137" duration="11905000" />
     </task>
     <servers />
   </component>
