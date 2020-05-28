@@ -36,6 +36,18 @@ class Quote(models.Model):
     context = models.TextField()
 
 
+class Event(models.Model):
+    title = models.CharField(max_length=100)
+    persian_date = models.CharField(max_length=50)
+    date = models.DateTimeField()
+
+
+class Statistics(models.Model):
+    title = models.CharField(max_length=100)
+    stat = models.IntegerField()
+    icon = models.ImageField(upload_to='stat_icons')
+
+
 
 
 

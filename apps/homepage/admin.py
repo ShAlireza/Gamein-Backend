@@ -18,10 +18,17 @@ class QuoteAdmin(admin.ModelAdmin):
     list_display = ('quoter', 'context')
 
 
+class EventAdmin(admin.ModelAdmin):
+    list_display = ('title', 'persian_date', 'date')
+
+
+class StatisticsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'stat', 'icon')
+
+
 admin.site.register(Staff, StaffAdmin)
 admin.site.register(Sponsor, SponsorAdmin)
 admin.site.register(Winner, WinnerAdmin)
 admin.site.register(Quote, QuoteAdmin)
-
-
-
+admin.site.register(Event, EventAdmin)
+admin.site.register(Statistics, StatisticsAdmin)
