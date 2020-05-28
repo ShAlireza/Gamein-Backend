@@ -95,6 +95,7 @@ db.sqlite3
 .idea/
 *.xml
 venv/
+env
 
 *.jpg
 *.png
