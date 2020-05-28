@@ -10,9 +10,13 @@ class SponsorAdmin(admin.ModelAdmin):
     list_display = ('name', 'sponsor_class', 'picture', 'site_url')
 
 
+class WinnerAdmin(admin.ModelAdmin):
+    list_display = ('title', 'award')
+
+
 admin.site.register(Staff, StaffAdmin)
 admin.site.register(Sponsor, SponsorAdmin)
-
+admin.site.register(Winner, WinnerAdmin)
 
 
 

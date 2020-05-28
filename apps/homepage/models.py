@@ -25,5 +25,11 @@ class Sponsor(models.Model):
     site_url = models.URLField('WebSite')
 
 
+class Winner(models.Model):
+
+    title = models.CharField(max_length=100)
+    award = models.CharField(max_length=50)
+    color = models.CharField(max_length=50)
+
 
 
