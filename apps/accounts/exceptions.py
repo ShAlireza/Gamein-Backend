@@ -14,3 +14,15 @@ class TokenExpired(APIException):
     status_code = status.HTTP_400_BAD_REQUEST
     default_detail = _("Token expired")
     default_code = _("token_expired")
+
+
+class AccountActivationError(APIException):
+    status_code = status.HTTP_400_BAD_REQUEST
+    default_detail = _("Something went wrong! Please try again")
+    default_code = _("account_activation_error")
+
+
+class WrongPassword(APIException):
+    status_code = status.HTTP_400_BAD_REQUEST
+    default_detail = _("Entered password is wrong")
+    default_code = _("wrong_password")
