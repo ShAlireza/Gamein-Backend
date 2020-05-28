@@ -5,14 +5,14 @@ from rest_framework import serializers
 from rest_framework.generics import get_object_or_404
 from rest_framework.validators import UniqueValidator
 
-from .models import Profile, ResetPasswordToken
+from .models import Profile, ResetPasswordToken, ActivateUserToken
 from .exceptions import PasswordsNotMatch
 
 
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ('university', 'birth_date', 'phone_number')
+        fields = ('university', 'birth_date', 'phone_number', 'major')
 
 
 class UserSignUpSerializer(serializers.ModelSerializer):
@@ -68,3 +68,9 @@ class ResetPasswordConfirmSerializer(serializers.ModelSerializer):
             raise PasswordsNotMatch()
 
         return attrs
+
+
+class ActivateUserTokenSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ActivateUserToken
+        fields = ('token', 'eid')
