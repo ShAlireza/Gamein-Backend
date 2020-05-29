@@ -5,4 +5,4 @@ django-cors-headers==3.3.0
 Pillow==7.1.2
 psycopg2==2.8.5
 python-decouple==3.3
-
+django-model-utils==4.0.0

@@ -10,7 +10,7 @@ from rest_framework import status
 from .serializers import (UserSignUpSerializer, EmailSerializer,
                           ResetPasswordConfirmSerializer,
                           ActivateUserTokenSerializer,
-                          ChangePasswordSerializer)
+                          ChangePasswordSerializer, ProfileSerializer)
 
 
 # Create your views here.
@@ -148,7 +148,7 @@ class ChangePasswordAPIView(GenericAPIView):
 class ToggleProfileInfoVisibilityAPIView(GenericAPIView):
     permission_classes = (IsAuthenticated,)
 
-    def post(self, request):
+    def put(self, request):
         profile = request.user.profile
         profile.hide_profile_info = not profile.hide_profile_info
         profile.save()
@@ -157,3 +157,13 @@ class ToggleProfileInfoVisibilityAPIView(GenericAPIView):
             data={'details': _('Profile updated successfully')},
             status=status.HTTP_200_OK
         )
+
+
+class ProfileInfoAPIView(GenericAPIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = ProfileSerializer
+
+    def get(self, request):
+        profile = request.user.profile
+        data = self.get_serializer(profile).data
+        return Response(data={'profile': data}, status=status.HTTP_200_OK)

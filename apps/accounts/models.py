@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+from model_utils.models import UUIDModel, TimeStampedModel
 
 
 # Create your models here.
 
 
-class Profile(models.Model):
+class Profile(UUIDModel, TimeStampedModel):
     user = models.OneToOneField(User, related_name='profile',
                                 on_delete=models.CASCADE)
 
@@ -16,7 +17,7 @@ class Profile(models.Model):
     hide_profile_info = models.BooleanField(default=False)
 
 
-class ResetPasswordToken(models.Model):
+class ResetPasswordToken(UUIDModel, TimeStampedModel):
     EXPIRATION_TIME = 24 * 60 * 60
 
     uid = models.CharField(max_length=128)
@@ -30,6 +31,6 @@ class ResetPasswordToken(models.Model):
         self.save()
 
 
-class ActivateUserToken(models.Model):
+class ActivateUserToken(UUIDModel, TimeStampedModel):
     token = models.CharField(max_length=128)
     eid = models.CharField(max_length=128, null=True)
