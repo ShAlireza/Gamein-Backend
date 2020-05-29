@@ -36,13 +36,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6957c229-385b-4544-902a-80edf2d155ff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/homepage/storage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homepage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homepage/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamein_backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="6957c229-385b-4544-902a-80edf2d155ff" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,7 +147,7 @@
       <workItem from="1590651515630" duration="89000" />
       <workItem from="1590651628137" duration="14515000" />
       <workItem from="1590681389220" duration="7335000" />
-      <workItem from="1590736250160" duration="14820000" />
+      <workItem from="1590736250160" duration="15382000" />
     </task>
     <servers />
   </component>
