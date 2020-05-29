@@ -21,6 +21,7 @@ urlpatterns = [
     path('profile/hide-info',
          view=views.ToggleProfileInfoVisibilityAPIView.as_view(),
          name='hide_profile_info'),
-    path('profile', view=views.ProfileInfoAPIView.as_view(), name='profile'),
+    path('profile/<str:username>', view=views.ProfileInfoAPIView.as_view(),
+         name='profile'),
 
 ]

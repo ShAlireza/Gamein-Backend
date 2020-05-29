@@ -9,11 +9,30 @@ from .exceptions import PasswordsNotMatch, WrongPassword
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    first_name = serializers.SerializerMethodField('_get_first_name')
+    last_name = serializers.SerializerMethodField('_get_last_name')
+    username = serializers.SerializerMethodField('_get_username')
+
+    @staticmethod
+    def _get_first_name(profile: Profile):
+        return profile.user.first_name
+
+    @staticmethod
+    def _get_last_name(profile: Profile):
+        return profile.user.last_name
+
+    @staticmethod
+    def _get_username(profile: Profile):
+        return profile.user.username
+
     class Meta:
         model = Profile
-        fields = ('university', 'birth_date', 'phone_number', 'major', 'id')
+        fields = (
+            'first_name', 'last_name', 'username', 'university', 'birth_date',
+            'phone_number', 'major'
+        )
         extra_kwargs = {
-            'id': {'read_only': True}
+            'phone_number': {'write_only': True}
         }
 
 
@@ -32,7 +51,7 @@ class UserSignUpSerializer(serializers.ModelSerializer):
         model = User
         fields = (
             'first_name', 'last_name', 'email', 'password', 'password_repeat',
-            'profile')
+            'profile', 'username')
 
     def validate(self, data):
         if data['password'] != data['password_repeat']:
@@ -40,7 +59,6 @@ class UserSignUpSerializer(serializers.ModelSerializer):
         return data
 
     def create(self, validated_data):
-        validated_data['username'] = validated_data['email']
         profile_data = validated_data.pop('profile')
         validated_data.pop('password_repeat')
         validated_data['password'] = make_password(
