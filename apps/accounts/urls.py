@@ -18,5 +18,8 @@ urlpatterns = [
     path('reset-password/confirm',
          view=views.ResetPasswordConfirmAPIView.as_view(),
          name='reset_password_confirm'),
+    path('profile/hide-info',
+         view=views.ToggleProfileInfoVisibilityAPIView.as_view(),
+         name='hide_profile_info'),
 
 ]

@@ -132,7 +132,7 @@ class ResetPasswordConfirmAPIView(GenericAPIView):
 
 class ChangePasswordAPIView(GenericAPIView):
     serializer_class = ChangePasswordSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request):
         serializer = self.get_serializer(data=request.data)
@@ -141,5 +141,19 @@ class ChangePasswordAPIView(GenericAPIView):
 
         return Response(
             data={'details': _('Password changed successfully')},
+            status=status.HTTP_200_OK
+        )
+
+
+class ToggleProfileInfoVisibilityAPIView(GenericAPIView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        profile = request.user.profile
+        profile.hide_profile_info = not profile.hide_profile_info
+        profile.save()
+
+        return Response(
+            data={'details': _('Profile updated successfully')},
             status=status.HTTP_200_OK
         )

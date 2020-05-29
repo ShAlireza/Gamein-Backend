@@ -13,6 +13,7 @@ class Profile(models.Model):
     birth_date = models.DateField()
     phone_number = models.CharField(max_length=32)
     major = models.CharField(max_length=128)
+    hide_profile_info = models.BooleanField(default=False)
 
 
 class ResetPasswordToken(models.Model):
