@@ -2,6 +2,12 @@ from .models import *
 from rest_framework.serializers import ModelSerializer
 
 
+class AboutSerializer(ModelSerializer):
+    class Meta:
+        model = About
+        fields = '__all__'
+
+
 class StatisticsSerializer(ModelSerializer):
     class Meta:
         model = Statistics

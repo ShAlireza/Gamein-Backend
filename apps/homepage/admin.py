@@ -62,3 +62,10 @@ class SocialAdmin(admin.ModelAdmin):
     list_display = ('name', 'url', 'icon')
     list_editable = ('url', 'icon')
     search_fields = ['name']
+
+
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+    list_display = ['title', 'context']
+    list_editable = ('context',)
+    search_fields = ['title']

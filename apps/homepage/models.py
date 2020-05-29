@@ -53,6 +53,10 @@ class Social(models.Model):
     icon = models.ImageField(upload_to='social_icons')
 
 
+class About(models.Model):
+    title = models.CharField(max_length=100, blank=True)
+    context = models.TextField()
+
 
 
 

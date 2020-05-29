@@ -8,6 +8,7 @@ class HomepageView(GenericAPIView):
     def get(self, request):
         # TODO: update stats from other models when created
         data = {
+            'about': AboutSerializer(About.objects.all(), many=True).data,
             'statistics': StatisticsSerializer(Statistics.objects.all(), many=True).data,
             'events': EventSerializer(Event.objects.all(), many=True).data,
             'winners': WinnerSerializer(Winner.objects.all(), many=True).data,
