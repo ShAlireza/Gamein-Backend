@@ -17,8 +17,7 @@ class Staff(models.Model):
 
 class Sponsor(models.Model):
 
-    SponsorClass = models.TextChoices('Sponsor Class', 'gold silver bronze')
-
+    SponsorClass = models.TextChoices('Sponsor Class', '1 2 3')
     name = models.CharField(max_length=100)
     sponsor_class = models.CharField(max_length=100, choices=SponsorClass.choices)
     picture = models.ImageField(upload_to="sponsor_pictures")
