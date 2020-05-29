@@ -37,12 +37,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6957c229-385b-4544-902a-80edf2d155ff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/homepage/migrations/0009_auto_20200529_1046.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/homepage/storage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homepage/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homepage/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/homepage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homepage/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homepage/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homepage/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/homepage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homepage/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamein_backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +153,7 @@
       <workItem from="1590651515630" duration="89000" />
       <workItem from="1590651628137" duration="14515000" />
       <workItem from="1590681389220" duration="7335000" />
-      <workItem from="1590736250160" duration="9784000" />
+      <workItem from="1590736250160" duration="14820000" />
     </task>
     <servers />
   </component>
@@ -174,6 +173,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="590" y="209" key="#Inspections" timestamp="1590758468513">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="590" y="209" key="#Inspections/0.0.1920.1080@0.0.1920.1080" timestamp="1590758468513" />
     <state x="555" y="181" width="808" height="731" key="#Plugins" timestamp="1590651843832">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -210,10 +213,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="457" y="162" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1590652225330" />
-    <state x="623" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1590749252570">
+    <state x="623" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1590758163741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1590749252570" />
+    <state x="623" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1590758163741" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Gamein_Backend$manage.coverage" NAME="manage Coverage Results" MODIFIED="1590657216442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

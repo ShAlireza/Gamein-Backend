@@ -1,22 +1,26 @@
 from django.db import models
-
+from .storage import OverwriteStorage
 
 
 class Staff(models.Model):
-
     TeamNames = models.TextChoices('Team Name', 'Site Idea others')
+
     # TODO: complete all teams' names
+
+    def upload_path(self, filename):
+        ext = filename.split('.')[-1]
+        return f'staff_pictures/{self.team}/{self.name}_{self.last_name}.{ext}'
 
     team = models.CharField(max_length=64, choices=TeamNames.choices)
     name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
-    picture = models.ImageField(upload_to="staff_pictures", default='staff_pictures/profile.jpg', blank=True)
+    picture = models.ImageField(upload_to=upload_path, storage=OverwriteStorage(),
+                                default='staff_pictures/profile.jpg', blank=True)
     role = models.CharField(max_length=20, blank=True)
     linked_in_url = models.URLField('Linked-in', blank=True)
 
 
 class Sponsor(models.Model):
-
     SponsorClass = models.TextChoices('Sponsor Class', '1 2 3')
     name = models.CharField(max_length=100)
     sponsor_class = models.CharField(max_length=100, choices=SponsorClass.choices)
@@ -56,7 +60,3 @@ class Social(models.Model):
 class About(models.Model):
     title = models.CharField(max_length=100, blank=True)
     context = models.TextField()
-
-
-
-
