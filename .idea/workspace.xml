@@ -4,8 +4,10 @@
     <list default="true" id="6957c229-385b-4544-902a-80edf2d155ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/emails/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gamein_backend/settings/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/settings/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamein_backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +95,10 @@
       <workItem from="1590834552915" duration="1785000" />
       <workItem from="1590836561806" duration="1782000" />
       <workItem from="1590838556563" duration="1773000" />
-      <workItem from="1590842831984" duration="310000" />
+      <workItem from="1590842831984" duration="1755000" />
+      <workItem from="1590855328610" duration="1534000" />
+      <workItem from="1590858087188" duration="600000" />
+      <workItem from="1590860065049" duration="1782000" />
     </task>
     <servers />
   </component>

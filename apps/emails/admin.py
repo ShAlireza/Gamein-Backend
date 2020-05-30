@@ -2,11 +2,16 @@ from django.contrib import admin
 from django.db import models
 from martor.widgets import AdminMartorWidget
 
-from apps.emails.models import EmailContent
+from apps.emails.models import Email, EmailTemplate
 
 
-@admin.register(EmailContent)
+@admin.register(Email)
 class EmailContentAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': AdminMartorWidget},
     }
+
+
+@admin.register(EmailTemplate)
+class EmailTemplateAdmin(admin.ModelAdmin):
+    pass
