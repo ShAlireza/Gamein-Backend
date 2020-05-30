@@ -1,11 +1,11 @@
 import string
 
+from celery.task import Task
+from django.conf.global_settings import EMAIL_HOST_USER
 from django.template import Template, Context
 
 from apps.emails.models import EmailTemplate
-from gamein_backend.settings.settings import EMAIL_HOST_USER
 
-from celery import Task
 from django.core.mail import EmailMultiAlternatives
 
 

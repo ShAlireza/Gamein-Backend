@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6957c229-385b-4544-902a-80edf2d155ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/emails/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/emails/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/emails/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/emails/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamein_backend/settings/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/settings/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamein_backend/settings/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamein_backend/settings/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/celery.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamein_backend/settings/martor.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/martor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamein_backend/settings/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,12 +40,13 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/apps/accounts/services" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gamein_backend" />
       <recent name="$PROJECT_DIR$/gamein_backend/settings" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps/accounts/services" />
     </key>
   </component>
   <component name="RunManager">
