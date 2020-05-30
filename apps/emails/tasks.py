@@ -1,4 +1,8 @@
 import string
+
+from django.template import Template, Context
+
+from apps.emails.models import EmailTemplate
 from gamein_backend.settings.settings import EMAIL_HOST_USER
 
 from celery import Task
@@ -11,10 +15,13 @@ class SendEmailTask(Task):
     def run(self):
         return self.send_email()
 
-    def send_email(self, text: string, subject: string, to: list):
-        # TODO: set email content based on email template
-        email_text_message = None  # TODO: render text to string
-        email_html_message = None  # TODO: render html to string
+    def send_email(self, template: EmailTemplate, content_text: string, subject: string, to: list):
+        content = {
+            'subject': subject,
+            'context': content_text
+        }
+        email_text_message = self.render_email_templates(template.text, content)
+        email_html_message = self.render_email_templates(template.html, content)
         mail = EmailMultiAlternatives(
             subject=subject,
             body=email_text_message,
@@ -22,3 +29,6 @@ class SendEmailTask(Task):
             to=to)
         mail.attach_alternative(email_html_message, "text/html")
         mail.send()
+
+    def render_email_templates(self, template: string, context: dict):
+        return Template(template).render(Context(context))
