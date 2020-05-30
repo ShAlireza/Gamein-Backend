@@ -1,5 +1,5 @@
 import string
-from gamein_backend.settings import EMAIL_HOST_USER
+from gamein_backend.settings.settings import EMAIL_HOST_USER
 
 from celery import Task
 from django.core.mail import EmailMultiAlternatives
