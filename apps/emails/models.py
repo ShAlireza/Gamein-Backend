@@ -1,10 +1,12 @@
 from django.db import models
 from martor.models import MartorField
+from rest_framework.fields import ListField
 
 
 class Email(models.Model):
     subject = models.CharField(null=False, max_length=100)
     content = models.TextField(null=False)
+    recipients = ListField()
 
     def __str__(self):
         return self.subject
