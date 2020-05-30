@@ -37,8 +37,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6957c229-385b-4544-902a-80edf2d155ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/education/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/education/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,11 +204,15 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="937" height="275" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1590666241323" />
-    <state x="457" y="185" width="1007" height="737" key="SettingsEditor" timestamp="1590862295950">
+    <state x="457" y="185" width="1007" height="737" key="SettingsEditor" timestamp="1590862498099">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="457" y="162" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1590652225330" />
-    <state x="457" y="185" width="1007" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1590862295950" />
+    <state x="457" y="185" width="1007" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1590862498099" />
+    <state x="745" y="243" width="419" height="628" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1590862568450">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="745" y="243" width="419" height="628" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1590862568450" />
     <state x="623" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1590758163741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
