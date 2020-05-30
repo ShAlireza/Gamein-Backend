@@ -2,23 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6957c229-385b-4544-902a-80edf2d155ff" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gamein_backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gamein_backend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/accounts/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/exceptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/accounts/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/accounts/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamein_backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/settings.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1cSXva05a5gFndJWhga9IcDoFWn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.env" />
@@ -32,18 +37,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/apps/accounts/services" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="gamein_backend" type="Python.DjangoServer" factoryName="Django server">
@@ -86,23 +79,29 @@
       <workItem from="1590664845014" duration="2813000" />
       <workItem from="1590684395717" duration="2523000" />
       <workItem from="1590692095955" duration="3035000" />
+      <workItem from="1590828117344" duration="638000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="205" y="31" key="SettingsEditor" timestamp="1590827651786">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="205" y="31" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1590827651786" />
   </component>
 </project>
