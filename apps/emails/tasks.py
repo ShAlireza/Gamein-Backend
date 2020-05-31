@@ -12,8 +12,8 @@ from django.core.mail import EmailMultiAlternatives
 class SendEmailTask(Task):
     name = 'send_email'
 
-    def run(self):
-        return self.send_email()
+    def run(self, template: EmailTemplate, content_text: string, subject: string, to: list):
+        return self.send_email(template, content_text, subject, to)
 
     def send_email(self, template: EmailTemplate, content_text: string, subject: string, to: list):
         content = {

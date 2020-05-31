@@ -6,7 +6,7 @@ from apps.emails.models import Email, EmailTemplate
 
 
 @admin.register(Email)
-class EmailContentAdmin(admin.ModelAdmin):
+class EmailAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': AdminMartorWidget},
     }
