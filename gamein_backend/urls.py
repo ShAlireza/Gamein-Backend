@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+admin.site.site_header = 'Gamein Admin'
+admin.site.site_url = 'http://google.com'  # TODO: set to site domain
+
 urlpatterns = [
     path('api/martor/', include('martor.urls')),
 
