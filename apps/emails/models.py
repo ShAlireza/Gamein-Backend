@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.template import Context, Template
 from martor.models import MartorField
@@ -17,10 +18,10 @@ class EmailTemplate(models.Model):
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
+        super().save(force_insert, force_update, using, update_fields)
         fields = self.find_template_variables(self.html)
         for field in fields:
             EmailTemplateField.objects.create(field_name=field, template=self)
-        super().save(force_insert, force_update, using, update_fields)
 
     def find_template_variables(self, template):
         fields = re.findall('{{\s(\w+)\s}}', template)
@@ -32,12 +33,13 @@ class EmailTemplateField(models.Model):
     template = models.ForeignKey(EmailTemplate, on_delete=models.CASCADE)
 
 
-class Email(models.Model):
+class Mail(models.Model):
     template = models.OneToOneField(to=EmailTemplate, on_delete=models.CASCADE)
     subject = models.CharField(blank=True, null=True, max_length=100)
     values_of_fields = models.TextField(blank=False, null=False)
     html_context = models.TextField()
     text_context = models.TextField()
+    recipients = models.ManyToManyField(User)
 
     def __str__(self):
         return self.subject
