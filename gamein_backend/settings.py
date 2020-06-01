@@ -18,15 +18,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-f0-b=j=ph$dyki-ijnf)tw1v^!x$75ll!#apr!gzv&fcg7b$!'
 
 from decouple import config
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+SECRET_KEY = config('SECRET_KEY_VALUE', default='-f0-b=j=ph$dyki-ijnf)tw1v^!x$75ll!#apr!gzv&fcg7b$!')
 
-ALLOWED_HOSTS = []
+DEBUG = config('DEBUG_VALUE', default=True, cast=bool)
+
+ALLOWED_HOSTS = [config('ALLOWED_HOSTS', default='localhost')]
 
 # Application definition
 
@@ -42,6 +41,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'apps.accounts',
     'apps.homepage',
+    'rest_framework_swagger',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -121,6 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'collected_static'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -132,6 +134,7 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.CursorPagination',
     'PAGE_SIZE': 100,
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' ,
 }
 
 DOMAIN = config('DOMAIN')
@@ -144,7 +147,8 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = config('EMAIL_PORT')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'apps'),
+    os.path.join(BASE_DIR, 'gamein_backend'),
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

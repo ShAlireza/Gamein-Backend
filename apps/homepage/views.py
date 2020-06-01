@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.generics import GenericAPIView
 from .serializers import *
 from rest_framework.response import Response
+from drf_yasg.utils import swagger_auto_schema
 
 
 class HomepageView(GenericAPIView):
@@ -21,6 +22,7 @@ class HomepageView(GenericAPIView):
 
 
 class StaffsView(GenericAPIView):
+    serializer_class = StaffSerializer
     def get(self, request):
         data = {
             'staffs': StaffSerializer(Staff.objects.all(), many=True).data

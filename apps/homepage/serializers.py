@@ -1,3 +1,6 @@
+from drf_yasg import openapi
+from rest_framework import serializers
+
 from .models import *
 from rest_framework.serializers import ModelSerializer
 
@@ -20,6 +23,7 @@ class EventSerializer(ModelSerializer):
         fields = '__all__'
 
 
+
 class WinnerSerializer(ModelSerializer):
     class Meta:
         model = Winner
@@ -27,6 +31,7 @@ class WinnerSerializer(ModelSerializer):
 
 
 class StaffSerializer(ModelSerializer):
+
     class Meta:
         model = Staff
         fields = '__all__'

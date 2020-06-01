@@ -68,7 +68,7 @@ class ResendActivationEmailAPIView(GenericAPIView):
 
 
 class ActivateAccountAPIView(GenericAPIView):
-
+    
     def get(self, request, eid, token):
         pass
 
