@@ -7,6 +7,7 @@ from apps.emails.models import Email, EmailTemplate
 
 @admin.register(Email)
 class EmailAdmin(admin.ModelAdmin):
+    exclude = ('subject', )
     formfield_overrides = {
         models.TextField: {'widget': AdminMartorWidget},
     }
