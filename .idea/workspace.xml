@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6957c229-385b-4544-902a-80edf2d155ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/emails/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamein_backend/settings/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamein_backend/settings/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/celery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamein_backend/settings/martor.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/martor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamein_backend/settings/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
