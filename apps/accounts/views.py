@@ -8,7 +8,9 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from .serializers import (UserSignUpSerializer, EmailSerializer,
-                          ResetPasswordConfirmSerializer)
+                          ResetPasswordConfirmSerializer,
+                          ActivateUserTokenSerializer,
+                          ChangePasswordSerializer)
 
 
 # Create your views here.
@@ -68,9 +70,26 @@ class ResendActivationEmailAPIView(GenericAPIView):
 
 
 class ActivateAccountAPIView(GenericAPIView):
+<<<<<<< HEAD
     
     def get(self, request, eid, token):
         pass
+=======
+    serializer_class = ActivateUserTokenSerializer
+
+    def post(self, request):
+        from .services.activate_account import ActivateAccount
+
+        data = self.get_serializer(data=request.data).data
+        activate_account_service = ActivateAccount(eid=data['eid'],
+                                                   token=data['token'])
+        activate_account_service.activate()
+
+        return Response(
+            data={'details': _('Account successfully activated!')},
+            status=status.HTTP_200_OK
+        )
+>>>>>>> baf64bc535cb406b714a60a6e8f010427a476383
 
 
 class ResetPasswordAPIView(GenericAPIView):
@@ -79,7 +98,7 @@ class ResetPasswordAPIView(GenericAPIView):
     def post(self, request):
         from .tasks import reset_password
 
-        data = self.get_serializer(request.data).data
+        data = self.get_serializer(data=request.data).data
         user = get_object_or_404(User, email=data['email'])
 
         send_date = timezone.now() + timezone.timedelta(seconds=5)
@@ -98,15 +117,33 @@ class ResetPasswordConfirmAPIView(GenericAPIView):
     serializer_class = ResetPasswordConfirmSerializer
 
     def post(self, request):
-        from .tasks import reset_password_confirm
+        from .services.reset_password_confirm import ResetPasswordConfirm
 
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         data = serializer.validated_data
 
-        reset_password_confirm.apply_async(
-            [data['uid'], data['token'], data['password']]
+        reset_password_confirm_service = ResetPasswordConfirm(
+            uid=data['uid'],
+            token=data['token'],
+            password=data['password']
         )
+        reset_password_confirm_service.reset_password_confirm()
+
+        return Response(
+            data={'details': _('Password changed successfully')},
+            status=status.HTTP_200_OK
+        )
+
+
+class ChangePasswordAPIView(GenericAPIView):
+    serializer_class = ChangePasswordSerializer
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
 
         return Response(
             data={'details': _('Password changed successfully')},

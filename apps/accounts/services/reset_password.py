@@ -7,7 +7,6 @@ from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 
 from ..models import ResetPasswordToken
-from gamein_backend.celery import app
 
 __all__ = ('ResetPassword',)
 
