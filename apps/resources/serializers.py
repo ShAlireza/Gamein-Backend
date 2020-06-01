@@ -9,7 +9,6 @@ from django.conf import settings
 from .models import Document, Section, Subsection
 
 
-
 class SubtitleSerializer(ModelSerializer):
     class Meta:
         model = Subsection
@@ -33,14 +32,16 @@ class SectionSerializer(ModelSerializer):
 
     class Meta:
         model = Section
-        fields = ['uuid', 'title_en', 'title_fa', 'markdown', 'subtitles', 'link_to_colab']
+        fields = ['uuid', 'title_en', 'title_fa', 'markdown', 'subtitles',
+                  'link_to_colab']
 
     def to_representation(self, instance):
         """
         Object instance -> Dict of primitive datatypes.
         """
         ret = OrderedDict()
-        fields = [field for field in self.fields.values() if not field.write_only]
+        fields = [field for field in self.fields.values() if
+                  not field.write_only]
 
         for field in fields:
             try:
@@ -54,8 +55,8 @@ class SectionSerializer(ModelSerializer):
                     # Do not seralize empty objects
                     continue
                 if isinstance(represenation, list) and not represenation:
-                   # Do not serialize empty lists
-                   continue
+                    # Do not serialize empty lists
+                    continue
                 ret[field.field_name] = represenation
 
         return ret
@@ -76,20 +77,21 @@ class SectionSerializer(ModelSerializer):
 
 
 class DocumentSerializer(ModelSerializer):
-
     thumbnail = serializers.SerializerMethodField()
     file = serializers.SerializerMethodField()
 
     class Meta:
         model = Document
-        fields = ['id', 'title_en', 'title_fa', 'description_en', 'description_fa', 'thumbnail', 'file', 'time_to_read']
+        fields = ['id', 'title_en', 'title_fa', 'description_en',
+                  'description_fa', 'thumbnail', 'file', 'time_to_read']
 
     def to_representation(self, instance):
         """
         Object instance -> Dict of primitive datatypes.
         """
         ret = OrderedDict()
-        fields = [field for field in self.fields.values() if not field.write_only]
+        fields = [field for field in self.fields.values() if
+                  not field.write_only]
 
         for field in fields:
             try:
@@ -103,8 +105,8 @@ class DocumentSerializer(ModelSerializer):
                     # Do not seralize empty objects
                     continue
                 if isinstance(represenation, list) and not represenation:
-                   # Do not serialize empty lists
-                   continue
+                    # Do not serialize empty lists
+                    continue
                 ret[field.field_name] = represenation
 
         return ret

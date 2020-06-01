@@ -1,16 +1,16 @@
-from rest_framework.generics import GenericAPIView
+from rest_framework import serializers
 
 from apps.education.models import *
 
 
-class RoleSerializers(GenericAPIView):
+class RoleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Role
         fields = '__all__'
 
 
-class LessonSerializers(GenericAPIView):
-    role = RoleSerializers()
+class LessonSerializer(serializers.ModelSerializer):
+    role = RoleSerializer()
 
     class Meta:
         model = Lesson
