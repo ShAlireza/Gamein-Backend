@@ -8,7 +8,7 @@ class Role(models.Model):
 class Lesson(models.Model):
     name = models.CharField(max_length=64)
     order = models.PositiveSmallIntegerField()
-    document = models.OneToOneField('education.UserRoleContent',
+    document = models.OneToOneField('resources.Document',
                                     on_delete=models.CASCADE)
     is_open = models.BooleanField(default=False)
     is_read = models.BooleanField(default=False)
