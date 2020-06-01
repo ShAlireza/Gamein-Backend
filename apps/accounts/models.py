@@ -13,6 +13,9 @@ class Profile(models.Model):
     birth_date = models.DateField()
     phone_number = models.CharField(max_length=32)
     major = models.CharField(max_length=128)
+    role = models.ForeignKey('education.Role', related_name='profiles',
+                             on_delete=models.DO_NOTHING, blank=True,
+                             null=True)
 
 
 class ResetPasswordToken(models.Model):
