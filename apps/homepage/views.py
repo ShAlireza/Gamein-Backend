@@ -2,7 +2,6 @@ from django.shortcuts import render
 from rest_framework.generics import GenericAPIView
 from .serializers import *
 from rest_framework.response import Response
-from drf_yasg.utils import swagger_auto_schema
 
 
 class HomepageView(GenericAPIView):
