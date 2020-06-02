@@ -25,7 +25,7 @@ SECRET_KEY = config('SECRET_KEY_VALUE', default='-f0-b=j=ph$dyki-ijnf)tw1v^!x$75
 
 DEBUG = config('DEBUG_VALUE', default=True, cast=bool)
 
-ALLOWED_HOSTS = [config('ALLOWED_HOSTS', default='127.0.0.1')]
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1 localhost').split(' ')
 
 # Application definition
 
@@ -83,10 +83,10 @@ DATABASES = {
     'default': {
         'ENGINE': config('DB_ENGINE', default='django.db.backends.sqlite3'),
         'NAME': config('DB_NAME', default=os.path.join(BASE_DIR, 'db.sqlite3')),
-        'USER': config('DB_USER', default=''),
-        'PASSWORD': config('DB_PASSWORD', default=''),
-        'HOST': config('DB_HOST', default=''),
-        'PORT': config('DB_PORT', default=''),
+        'USER': config('DB_USER', default='user'),
+        'PASSWORD': config('DB_PASSWORD', default='password'),
+        'HOST': config('DB_HOST', default='localhost'),
+        'PORT': config('DB_PORT', default='5432'),
     }
 }
 
