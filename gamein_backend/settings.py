@@ -25,7 +25,7 @@ SECRET_KEY = config('SECRET_KEY_VALUE', default='-f0-b=j=ph$dyki-ijnf)tw1v^!x$75
 
 DEBUG = config('DEBUG_VALUE', default=True, cast=bool)
 
-ALLOWED_HOSTS = [config('ALLOWED_HOSTS', default='localhost')]
+ALLOWED_HOSTS = [config('ALLOWED_HOSTS', default='127.0.0.1')]
 
 # Application definition
 

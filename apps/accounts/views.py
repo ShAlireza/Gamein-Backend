@@ -70,11 +70,9 @@ class ResendActivationEmailAPIView(GenericAPIView):
 
 
 class ActivateAccountAPIView(GenericAPIView):
-<<<<<<< HEAD
     
     def get(self, request, eid, token):
         pass
-=======
     serializer_class = ActivateUserTokenSerializer
 
     def post(self, request):
@@ -89,7 +87,6 @@ class ActivateAccountAPIView(GenericAPIView):
             data={'details': _('Account successfully activated!')},
             status=status.HTTP_200_OK
         )
->>>>>>> baf64bc535cb406b714a60a6e8f010427a476383
 
 
 class ResetPasswordAPIView(GenericAPIView):
