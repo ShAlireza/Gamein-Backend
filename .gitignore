@@ -104,5 +104,3 @@ env
 Gamein_data/
 collected_static/
 
-docker-compose.yml
-Dockerfile

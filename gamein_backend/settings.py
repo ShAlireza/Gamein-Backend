@@ -153,6 +153,7 @@ EMAIL_PORT = config('EMAIL_PORT')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'apps'),
     os.path.join(BASE_DIR, 'gamein_backend'),
+    os.path.join(BASE_DIR, 'media')
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
