@@ -1,12 +1,12 @@
 from rest_framework import serializers
 
-from apps.education.models import *
+from .models import Role, Lesson
 
 
 class RoleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Role
-        fields = '__all__'
+        exclude = ('id',)
 
 
 class LessonSerializer(serializers.ModelSerializer):
@@ -14,4 +14,4 @@ class LessonSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Lesson
-        fields = ['name', 'order', 'document', 'is_open', 'is_read', 'role']
+        fields = ('name', 'order', 'document', 'is_open', 'is_read', 'role')

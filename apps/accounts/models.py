@@ -17,6 +17,9 @@ class Profile(models.Model):
                              on_delete=models.DO_NOTHING, blank=True,
                              null=True)
 
+    def __str__(self):
+        return self.user.get_full_name()
+
 
 class ResetPasswordToken(models.Model):
     EXPIRATION_TIME = 24 * 60 * 60
@@ -31,7 +34,13 @@ class ResetPasswordToken(models.Model):
         self.expired = True
         self.save()
 
+    def __str__(self):
+        return self.token
+
 
 class ActivateUserToken(models.Model):
     token = models.CharField(max_length=128)
     eid = models.CharField(max_length=128, null=True)
+
+    def __str__(self):
+        return self.token
