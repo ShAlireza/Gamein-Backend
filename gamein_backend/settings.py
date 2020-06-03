@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'gamein_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': config('DB_ENGINE', default='django.db.backends.sqlite3'),
-        'NAME': config('DB_NAME', default=os.path.join(BASE_DIR, 'db.sqlite3')),
-        'USER': config('DB_USER', default='user'),
-        'PASSWORD': config('DB_PASSWORD', default='password'),
+        'NAME': config('POSTGRES_DB', default=os.path.join(BASE_DIR, 'db.sqlite3')),
+        'USER': config('POSTGRES_USER', default='user'),
+        'PASSWORD': config('POSTGRES_PASSWORD', default='password'),
         'HOST': config('DB_HOST', default='localhost'),
         'PORT': config('DB_PORT', default='5432'),
     }
