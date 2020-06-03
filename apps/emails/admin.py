@@ -13,7 +13,6 @@ class EmailAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': AdminMartorWidget},
     }
-    actions = ['send_emails']
 
     def send_emails(self, request, queryset):
         [SendEmailTask().delay(html_message=email.html_context,
@@ -26,7 +25,7 @@ class EmailAdmin(admin.ModelAdmin):
             len(queryset),
         ) % len(queryset), messages.SUCCESS)
 
-    send_emails.short_description = "Send selected emails"
+    admin.site.add_action(send_emails, "Send selected emails")
 
     def get_recipients_emails(self, recipients):
         return list(recipients.all().values_list('email', flat=True))

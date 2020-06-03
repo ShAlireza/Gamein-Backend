@@ -47,7 +47,7 @@ class Mail(models.Model):
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
         context = dict()
-        email_values = re.split('\s\$\$\s', self.values_of_fields)
+        email_values = re.split('\s?\n?\$\$\s?\n?', self.values_of_fields)
         template_fields = self.template.emailtemplatefield_set.all().values_list('field_name', flat=True)
         for (field, value) in zip(template_fields, email_values):
             context[field] = value

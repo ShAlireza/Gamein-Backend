@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6957c229-385b-4544-902a-80edf2d155ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/emails/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/emails/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,6 +101,11 @@
       <workItem from="1591027410514" duration="2076000" />
       <workItem from="1591029527478" duration="1790000" />
       <workItem from="1591031351361" duration="610000" />
+      <workItem from="1591036522152" duration="141000" />
+      <workItem from="1591081048494" duration="1257000" />
+      <workItem from="1591087112414" duration="884000" />
+      <workItem from="1591177241113" duration="1151000" />
+      <workItem from="1591181185219" duration="1242000" />
     </task>
     <servers />
   </component>
@@ -125,6 +129,22 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="449" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1299.741@67.27.1299.741" timestamp="1590836966724" />
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1591036662024">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1591036662024" />
+    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1591036662023">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1591036662023" />
+    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1591036662016">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1591036662016" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1591036662024">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1591036662024" />
     <state x="205" y="31" key="SettingsEditor" timestamp="1590827651786">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
