@@ -7,14 +7,18 @@ from .models import Profile, ResetPasswordToken, ActivateUserToken
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('university', 'major', 'hide_profile_info', 'role')
+    search_fields = ('university', 'major')
+    list_filter = ('university', 'major', 'role')
 
 
 @admin.register(ResetPasswordToken)
 class ResetPasswordTokenAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('uid', 'token', 'expiration_date')
+    list_filter = ('expiration_date', 'expired')
 
 
 @admin.register(ActivateUserToken)
 class ActivateUserTokenAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('eid', 'token', 'used')
+    list_filter = ('used',)

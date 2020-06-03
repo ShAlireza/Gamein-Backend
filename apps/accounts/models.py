@@ -43,6 +43,11 @@ class ResetPasswordToken(UUIDModel, TimeStampedModel):
 class ActivateUserToken(UUIDModel, TimeStampedModel):
     token = models.CharField(max_length=128)
     eid = models.CharField(max_length=128, null=True)
+    used = models.BooleanField(default=False)
+
+    def make_used(self):
+        self.used = True
+        self.save()
 
     def __str__(self):
         return self.token
