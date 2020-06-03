@@ -37,13 +37,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6957c229-385b-4544-902a-80edf2d155ff" name="Default Changelist" comment="">
+<<<<<<< HEAD
+      <change afterPath="$PROJECT_DIR$/apps/education/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/education/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/education/models.py" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/accounts/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/exceptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/accounts/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/accounts/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/views.py" afterDir="false" />
+>>>>>>> fdf0f864ad85d00c8df48c171fc38857e5d968ba
+      <change beforePath="$PROJECT_DIR$/apps/education/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/education/views.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,8 +74,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.env" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PycharmProjects/Limak" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -182,7 +183,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="590" y="209" key="#Inspections" timestamp="1590758468513">
@@ -201,10 +201,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="814" y="196" key="EnvironmentVariablesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1590652221575" />
-    <state x="743" y="270" key="FileChooserDialogImpl" timestamp="1590652194267">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="743" y="290" width="464" height="525" key="FileChooserDialogImpl" timestamp="1591042384521">
+      <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="743" y="270" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1590652194267" />
+    <state x="743" y="290" width="464" height="525" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1591042384521" />
     <state width="937" height="275" key="GridCell.Tab.0.bottom" timestamp="1590666241324">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -221,16 +222,18 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="937" height="275" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1590666241323" />
-    <state x="457" y="162" key="SettingsEditor" timestamp="1590652225330">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="457" y="185" width="1007" height="737" key="SettingsEditor" timestamp="1591042385411">
+      <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="457" y="162" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1590652225330" />
+    <state x="457" y="185" width="1007" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1591042385411" />
+    <state x="745" y="243" width="419" height="628" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1590862568450">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="745" y="243" width="419" height="628" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1590862568450" />
     <state x="623" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1590758163741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="623" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1590758163741" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Gamein_Backend$manage.coverage" NAME="manage Coverage Results" MODIFIED="1590657216442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
