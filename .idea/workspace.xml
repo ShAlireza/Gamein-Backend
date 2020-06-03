@@ -17,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -30,6 +31,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.env" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../PycharmProjects/Limak" />
@@ -106,6 +108,10 @@
       <workItem from="1591087112414" duration="884000" />
       <workItem from="1591177241113" duration="1151000" />
       <workItem from="1591181185219" duration="1242000" />
+      <workItem from="1591184813716" duration="898000" />
+      <workItem from="1591198052129" duration="938000" />
+      <workItem from="1591199867449" duration="1784000" />
+      <workItem from="1591201707494" duration="990000" />
     </task>
     <servers />
   </component>
