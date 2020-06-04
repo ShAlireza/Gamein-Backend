@@ -37,12 +37,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6957c229-385b-4544-902a-80edf2d155ff" name="Default Changelist" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/apps/education/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/education/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/education/models.py" afterDir="false" />
-=======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
->>>>>>> fdf0f864ad85d00c8df48c171fc38857e5d968ba
+      <change beforePath="$PROJECT_DIR$/apps/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/migrations/0002_auto_20200601_1350.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/migrations/0003_auto_20200601_1656.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/migrations/0004_emailtemplatekeywords.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/tasks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/education/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/education/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,6 +61,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -72,6 +77,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.env" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -79,6 +85,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gamein_backend" />
+      <recent name="$PROJECT_DIR$/gamein_backend/settings" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -165,6 +173,43 @@
       <workItem from="1590664845014" duration="2813000" />
       <workItem from="1590684395717" duration="2523000" />
       <workItem from="1590692095955" duration="3035000" />
+      <workItem from="1590828117344" duration="1884000" />
+      <workItem from="1590832206817" duration="840000" />
+      <workItem from="1590833159936" duration="832000" />
+      <workItem from="1590834552915" duration="1785000" />
+      <workItem from="1590836561806" duration="1782000" />
+      <workItem from="1590838556563" duration="1773000" />
+      <workItem from="1590842831984" duration="1755000" />
+      <workItem from="1590855328610" duration="1534000" />
+      <workItem from="1590858087188" duration="600000" />
+      <workItem from="1590860065049" duration="1782000" />
+      <workItem from="1591008768255" duration="1754000" />
+      <workItem from="1591010570884" duration="1238000" />
+      <workItem from="1591027410514" duration="2076000" />
+      <workItem from="1591029527478" duration="1790000" />
+      <workItem from="1591031351361" duration="610000" />
+      <workItem from="1591036522152" duration="141000" />
+      <workItem from="1591081048494" duration="1257000" />
+      <workItem from="1591087112414" duration="884000" />
+      <workItem from="1591177241113" duration="1151000" />
+      <workItem from="1591181185219" duration="1242000" />
+      <workItem from="1591184813716" duration="898000" />
+      <workItem from="1591198052129" duration="938000" />
+      <workItem from="1591199867449" duration="1784000" />
+      <workItem from="1591201707494" duration="990000" />
+      <workItem from="1591205399365" duration="1778000" />
+      <workItem from="1591209036359" duration="1789000" />
+      <workItem from="1591210877578" duration="1780000" />
+      <workItem from="1591212846886" duration="1243000" />
+      <workItem from="1591214673168" duration="951000" />
+      <workItem from="1591265633226" duration="816000" />
+      <workItem from="1591266590655" duration="1782000" />
+      <workItem from="1591268423583" duration="1789000" />
+      <workItem from="1591272093740" duration="1054000" />
+      <workItem from="1591280073901" duration="1776000" />
+      <workItem from="1591281903867" duration="1779000" />
+      <workItem from="1591283862013" duration="1778000" />
+      <workItem from="1591285814647" duration="314000" />
     </task>
     <servers />
   </component>
@@ -176,13 +221,42 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="449" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590836966724">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="449" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1299.741@67.27.1299.741" timestamp="1590836966724" />
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1591036662024">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1591036662024" />
+    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1591036662023">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1591036662023" />
+    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1591036662016">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1591036662016" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1591036662024">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1591036662024" />
+    <state x="205" y="31" key="SettingsEditor" timestamp="1590827651786">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="205" y="31" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1590827651786" />
+    <state x="330" y="27" width="762" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1590833415496">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="330" y="27" width="762" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1299.741@67.27.1299.741" timestamp="1590833415496" />
   </component>
   <component name="WindowStateProjectService">
     <state x="590" y="209" key="#Inspections" timestamp="1590758468513">

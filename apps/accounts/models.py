@@ -20,6 +20,9 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.get_full_name()
 
+    def __str__(self):
+        return self.user.first_name + ' ' + self.user.last_name + ': ' + self.user.email
+
 
 class ResetPasswordToken(models.Model):
     EXPIRATION_TIME = 24 * 60 * 60

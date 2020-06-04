@@ -19,7 +19,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.site.site_header = 'Gamein Admin'
+admin.site.site_url = 'http://google.com'  # TODO: set to site domain
+
 urlpatterns = [
+    path('api/martor/', include('martor.urls')),
+
     path('api/admin/', admin.site.urls),
     path('api/accounts/', include('apps.accounts.urls')),
     path('api/', include('apps.homepage.urls')),
