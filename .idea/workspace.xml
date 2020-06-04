@@ -37,8 +37,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6957c229-385b-4544-902a-80edf2d155ff" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/deploy/nginx/default.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deploy/postgres/init.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamein_backend/settings_dir/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/settings_dir/base.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,11 +73,12 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.env" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PycharmProjects/AI_Midterm" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/deploy/nginx" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/deploy/nginx" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/apps/accounts/services" />
     </key>
@@ -188,7 +192,7 @@
       <workItem from="1590692095955" duration="3314000" />
       <workItem from="1590728805124" duration="614000" />
       <workItem from="1591241605234" duration="1275000" />
-      <workItem from="1591267597384" duration="8070000" />
+      <workItem from="1591267597384" duration="11964000" />
     </task>
     <servers />
   </component>
