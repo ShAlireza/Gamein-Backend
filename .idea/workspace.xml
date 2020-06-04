@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6957c229-385b-4544-902a-80edf2d155ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -12,6 +47,7 @@
       <change beforePath="$PROJECT_DIR$/apps/emails/migrations/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/emails/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/emails/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/education/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/education/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +71,8 @@
   <component name="ProjectId" id="1cSXva05a5gFndJWhga9IcDoFWn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -42,8 +80,8 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.env" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PycharmProjects/Limak" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -55,7 +93,41 @@
       <recent name="$PROJECT_DIR$/apps/accounts/services" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.manage">
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Gamein-Backend" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="gamein_backend" type="Python.DjangoServer" factoryName="Django server">
       <module name="gamein_backend" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -80,6 +152,11 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.manage" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -180,5 +257,57 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="330" y="27" width="762" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1299.741@67.27.1299.741" timestamp="1590833415496" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="590" y="209" key="#Inspections" timestamp="1590758468513">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="590" y="209" key="#Inspections/0.0.1920.1080@0.0.1920.1080" timestamp="1590758468513" />
+    <state x="555" y="181" width="808" height="731" key="#Plugins" timestamp="1590651843832">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="555" y="181" width="808" height="731" key="#Plugins/0.0.1920.1080@0.0.1920.1080" timestamp="1590651843832" />
+    <state x="769" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1590664777649">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="769" y="246" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1590664777649" />
+    <state x="814" y="196" key="EnvironmentVariablesDialog" timestamp="1590652221575">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="814" y="196" key="EnvironmentVariablesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1590652221575" />
+    <state x="743" y="290" width="464" height="525" key="FileChooserDialogImpl" timestamp="1591042384521">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="743" y="270" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1590652194267" />
+    <state x="743" y="290" width="464" height="525" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1591042384521" />
+    <state width="937" height="275" key="GridCell.Tab.0.bottom" timestamp="1590666241324">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="937" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1590666241324" />
+    <state width="937" height="275" key="GridCell.Tab.0.center" timestamp="1590666241323">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="937" height="275" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1590666241323" />
+    <state width="937" height="275" key="GridCell.Tab.0.left" timestamp="1590666241322">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="937" height="275" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1590666241322" />
+    <state width="937" height="275" key="GridCell.Tab.0.right" timestamp="1590666241323">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="937" height="275" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1590666241323" />
+    <state x="457" y="185" width="1007" height="737" key="SettingsEditor" timestamp="1591042385411">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="457" y="162" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1590652225330" />
+    <state x="457" y="185" width="1007" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1591042385411" />
+    <state x="745" y="243" width="419" height="628" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1590862568450">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="745" y="243" width="419" height="628" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1590862568450" />
+    <state x="623" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1590758163741">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1590758163741" />
   </component>
 </project>
