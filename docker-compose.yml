@@ -67,5 +67,3 @@ services:
 
   volumes:
     pgdata:
-    media:
-    static:
