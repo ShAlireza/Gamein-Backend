@@ -61,7 +61,7 @@ services:
       - ./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       - pgdata:/var/lib/postgresql/data/
     env_file:
-      - env
+      - .env
     expose:
       - "5432"
 
