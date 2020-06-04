@@ -14,6 +14,9 @@ class Profile(models.Model):
     phone_number = models.CharField(max_length=32)
     major = models.CharField(max_length=128)
 
+    def __str__(self):
+        return self.user.first_name + ' ' + self.user.last_name + ': ' + self.user.email
+
 
 class ResetPasswordToken(models.Model):
     EXPIRATION_TIME = 24 * 60 * 60

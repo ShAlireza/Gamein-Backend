@@ -1,23 +1,15 @@
-from django.contrib.auth.models import User
 from django.db import models
-from django.template import Context, Template
-from martor.models import MartorField
 from apps.accounts.models import Profile
 
-import string
 import re
 
 
 class EmailTemplate(models.Model):
     FIELDS_REGEX = '{{\s(\w+)\s}}'
     KEYWORDS_REGEX = '{{\s(\w+\.\w+)\s}}'
-    KEYWORDS = [
-        'user.name',
-        'user.university',
-    ]
-    
+
     title = models.CharField(null=False, max_length=50)
-    html = MartorField()
+    html = models.TextField(null=False)
     text = models.TextField(null=False)
 
     def __str__(self):
@@ -28,8 +20,11 @@ class EmailTemplate(models.Model):
         super().save(force_insert, force_update, using, update_fields)
         fields = self.find_template_variables(self.html)
         keywords = self.find_template_keywords(self.html)
-        [EmailTemplateField.objects.create(field_name=field, template=self) for field in fields]
-        [EmailTemplateKeywords.objects.create(keyword_type=keyword, template=self) for keyword in keywords]
+        EmailTemplateField.objects.filter(template=self).delete()
+        EmailTemplateKeywords.objects.filter(template=self).delete()
+        [EmailTemplateField.objects.create(field_name=field, field_value=None, template=self) for field in fields]
+        [EmailTemplateKeywords.objects.create(keyword_type=keyword, template=self) for keyword in
+         keywords]
 
     def find_template_variables(self, template):
         fields = re.findall(self.FIELDS_REGEX, template)
@@ -37,18 +32,25 @@ class EmailTemplate(models.Model):
 
     def find_template_keywords(self, template):
         keywords = re.findall(self.KEYWORDS_REGEX, template)
+        for i in range(len(keywords)):
+            for KEYWORD, VALUE in EmailTemplateKeywords.KEYWORDS:
+                if keywords[i] == VALUE:
+                    keywords[i] = KEYWORD
+                    break
         return keywords
 
 
 class EmailTemplateKeywords(models.Model):
     USER_NAME = 'UN'
     USER_UNIVERSITY = 'UU'
+    USER_FELLOW_STUDENT = 'UFS'
     KEYWORDS = [
         (USER_NAME, 'user.name'),
-        (USER_UNIVERSITY, 'user.university')
+        (USER_UNIVERSITY, 'user.university'),
+        (USER_FELLOW_STUDENT, 'user.fellow_students')
     ]
     keyword_type = models.CharField(
-        max_length=3,
+        max_length=4,
         choices=KEYWORDS,
         default=None,
     )
@@ -57,16 +59,17 @@ class EmailTemplateKeywords(models.Model):
 
 class EmailTemplateField(models.Model):
     field_name = models.TextField()
+    field_value = models.TextField(blank=True, null=True)
     template = models.ForeignKey(EmailTemplate, on_delete=models.CASCADE)
 
 
-class Mail(models.Model):
+class Email(models.Model):
     template = models.OneToOneField(to=EmailTemplate, on_delete=models.CASCADE)
     subject = models.CharField(blank=True, null=True, max_length=100)
     values_of_fields = models.TextField(blank=False, null=False)
     html_context = models.TextField()
     text_context = models.TextField()
-    recipients = models.ManyToManyField(User)
+    recipients = models.ManyToManyField(to=Profile, blank=True)
 
     def __str__(self):
         return self.subject
@@ -78,14 +81,9 @@ class Mail(models.Model):
         template_fields = self.template.emailtemplatefield_set.all().values_list('field_name', flat=True)
         for (field, value) in zip(template_fields, email_values):
             context[field] = value
+            self.template.emailtemplatefield_set.filter(field_name=field).update(field_value=value)
         if not self.subject:
             self.subject = context.get('subject')
-        self.set_values_to_template_fields(context)
+        self.html_context = self.template.html
+        self.text_context = self.template.text
         super().save(force_insert, force_update, using, update_fields)
-
-    def set_values_to_template_fields(self, context):
-        self.html_context = self.render_email_templates(self.template.html, context)
-        self.text_context = self.render_email_templates(self.template.text, context)
-
-    def render_email_templates(self, template: string, context: dict):
-        return Template(template).render(Context(context))
