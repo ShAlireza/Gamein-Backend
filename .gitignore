@@ -101,6 +101,8 @@ env
 *.png
 *.jpe
 
+.directory
+
 Gamein_data/
 collected_static/
 
