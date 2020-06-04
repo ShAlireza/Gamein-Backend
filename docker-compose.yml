@@ -1,0 +1,53 @@
+version: '3.3'
+
+services:
+  gamein_backen_nginx:
+    image: nginx:latest
+    container_name: gameing_backend_nginx
+    restart: always
+    ports:
+      - 800:800
+    volumes:
+      - ./static/:/static/
+      - ./media/:/media/
+      - /var/log/thebackend/nginx/:/var/log/nginx/
+      - ./deploy/config/nginx:/etc/nginx/conf.d
+    depends_on:
+      - gamein_backend_web
+  gamein_backend_web:
+    build: .
+    container_name: gamein_backend_web
+    restart: always
+    depends_on:
+      - gamein_backend_rabbitmq
+    environment:
+      DJANGO_SETTINGS_MODULE: "gamein_backend.settings.production"
+    command: >
+      sh -c "
+        ./manage.py migrate;
+        ./manage.py compilemessages;
+        ./manage.py collectstatic --noinput;
+        gunicorn --bind=0.0.0.0:8000 --timeout=90 --preload gamein_backend.wsgi:application;
+      "
+    volumes:
+      - ./static/:/static/
+      - ./media/:/media/
+      - /var/log/thebackend:/var/log/thebackend
+    ports:
+      - 172.17.0.1:8787:8000
+      - 8000:8000
+  gamein_backend_rabbitmq:
+    container_name: gamein_backend_rabbitmq
+    image: rabbitmq:3-management
+    environment:
+      - RABBITMQ_DEFAULT_USER=gamein
+      - RABBITMQ_DEFAULT_PASS=covid19
+  gamein_backend_celery:
+    container_name: gamein_backend_celery
+    build: .
+    command: ["celery", "-A", "gamein_backend", "worker", "-l", "info", "-E", "--concurrency=10"]
+    depends_on:
+      - gamein_backend_rabbitmq
+    volumes:
+      - ./static/:/static/
+      - ./media/:/media/
