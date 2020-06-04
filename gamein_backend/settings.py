@@ -20,6 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 from decouple import config
+from .martor import *
 
 SECRET_KEY = config('SECRET_KEY_VALUE', default='-f0-b=j=ph$dyki-ijnf)tw1v^!x$75ll!#apr!gzv&fcg7b$!')
 
@@ -39,10 +40,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
+    'martor',
+
     'apps.accounts',
+    'apps.emails'
     'apps.homepage',
     'rest_framework_swagger',
     'drf_yasg',
+    'apps.education',
 ]
 
 MIDDLEWARE = [
@@ -81,12 +86,8 @@ WSGI_APPLICATION = 'gamein_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': config('DB_ENGINE', default='django.db.backends.sqlite3'),
-        'NAME': config('DB_NAME', default=os.path.join(BASE_DIR, 'db.sqlite3')),
-        'USER': config('DB_USER', default='postgres'),
-        'PASSWORD': config('DB_PASSWORD', default='postgres'),
-        'HOST': config('DB_HOST', default='localhost'),
-        'PORT': config('DB_PORT', default='5432'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

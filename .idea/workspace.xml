@@ -38,7 +38,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6957c229-385b-4544-902a-80edf2d155ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/apps/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/homepage/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homepage/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/homepage/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homepage/urls.py" afterDir="false" />
@@ -47,14 +46,23 @@
       <change beforePath="$PROJECT_DIR$/gamein_backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
-=======
       <change beforePath="$PROJECT_DIR$/apps/accounts/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/exceptions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/accounts/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/accounts/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/tasks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
->>>>>>> baf64bc535cb406b714a60a6e8f010427a476383
+      <change beforePath="$PROJECT_DIR$/apps/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/migrations/0002_auto_20200601_1350.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/migrations/0003_auto_20200601_1656.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/migrations/0004_emailtemplatekeywords.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/emails/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/education/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/education/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,6 +75,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -82,13 +91,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.env" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PycharmProjects/Limak" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gamein_backend" />
+      <recent name="$PROJECT_DIR$/gamein_backend/settings" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -171,7 +183,6 @@
       <option name="presentableId" value="Default" />
       <updated>1590523199067</updated>
       <workItem from="1590523202439" duration="120000" />
-<<<<<<< HEAD
       <workItem from="1590650893318" duration="29000" />
       <workItem from="1590650959358" duration="512000" />
       <workItem from="1590651515630" duration="89000" />
@@ -186,12 +197,47 @@
       <workItem from="1590949656160" duration="10939000" />
       <workItem from="1590973949373" duration="744000" />
       <workItem from="1591008843412" duration="13032000" />
-=======
       <workItem from="1590574938865" duration="610000" />
       <workItem from="1590664845014" duration="2813000" />
       <workItem from="1590684395717" duration="2523000" />
       <workItem from="1590692095955" duration="3035000" />
->>>>>>> baf64bc535cb406b714a60a6e8f010427a476383
+      <workItem from="1590828117344" duration="1884000" />
+      <workItem from="1590832206817" duration="840000" />
+      <workItem from="1590833159936" duration="832000" />
+      <workItem from="1590834552915" duration="1785000" />
+      <workItem from="1590836561806" duration="1782000" />
+      <workItem from="1590838556563" duration="1773000" />
+      <workItem from="1590842831984" duration="1755000" />
+      <workItem from="1590855328610" duration="1534000" />
+      <workItem from="1590858087188" duration="600000" />
+      <workItem from="1590860065049" duration="1782000" />
+      <workItem from="1591008768255" duration="1754000" />
+      <workItem from="1591010570884" duration="1238000" />
+      <workItem from="1591027410514" duration="2076000" />
+      <workItem from="1591029527478" duration="1790000" />
+      <workItem from="1591031351361" duration="610000" />
+      <workItem from="1591036522152" duration="141000" />
+      <workItem from="1591081048494" duration="1257000" />
+      <workItem from="1591087112414" duration="884000" />
+      <workItem from="1591177241113" duration="1151000" />
+      <workItem from="1591181185219" duration="1242000" />
+      <workItem from="1591184813716" duration="898000" />
+      <workItem from="1591198052129" duration="938000" />
+      <workItem from="1591199867449" duration="1784000" />
+      <workItem from="1591201707494" duration="990000" />
+      <workItem from="1591205399365" duration="1778000" />
+      <workItem from="1591209036359" duration="1789000" />
+      <workItem from="1591210877578" duration="1780000" />
+      <workItem from="1591212846886" duration="1243000" />
+      <workItem from="1591214673168" duration="951000" />
+      <workItem from="1591265633226" duration="816000" />
+      <workItem from="1591266590655" duration="1782000" />
+      <workItem from="1591268423583" duration="1789000" />
+      <workItem from="1591272093740" duration="1054000" />
+      <workItem from="1591280073901" duration="1776000" />
+      <workItem from="1591281903867" duration="1779000" />
+      <workItem from="1591283862013" duration="1778000" />
+      <workItem from="1591285814647" duration="314000" />
     </task>
     <servers />
   </component>
@@ -203,14 +249,42 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="449" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590836966724">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="449" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1299.741@67.27.1299.741" timestamp="1590836966724" />
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1591036662024">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1591036662024" />
+    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1591036662023">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1591036662023" />
+    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1591036662016">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1591036662016" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1591036662024">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1591036662024" />
+    <state x="205" y="31" key="SettingsEditor" timestamp="1590827651786">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="205" y="31" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1590827651786" />
+    <state x="330" y="27" width="762" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1590833415496">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="330" y="27" width="762" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1299.741@67.27.1299.741" timestamp="1590833415496" />
   </component>
   <component name="WindowStateProjectService">
     <state x="590" y="209" key="#Inspections" timestamp="1590758468513">
@@ -233,11 +307,13 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="814" y="196" key="EnvironmentVariablesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1590652221575" />
-    <state x="743" y="270" key="FileChooserDialogImpl" timestamp="1590652194267">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="743" y="290" width="464" height="525" key="FileChooserDialogImpl" timestamp="1591042384521">
+      <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="743" y="270" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1590652194267" />
     <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1590862011903">
+    <state x="743" y="290" width="464" height="525" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1591042384521" />
+    <state width="937" height="275" key="GridCell.Tab.0.bottom" timestamp="1590666241324">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1590862011903" />
@@ -266,6 +342,17 @@
     </state>
     <state x="664" y="260" width="687" height="554" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1591021670431" />
     <state x="623" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1591021391720">
+    <state width="937" height="275" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1590666241323" />
+    <state x="457" y="185" width="1007" height="737" key="SettingsEditor" timestamp="1591042385411">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="457" y="162" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1590652225330" />
+    <state x="457" y="185" width="1007" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1591042385411" />
+    <state x="745" y="243" width="419" height="628" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1590862568450">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="745" y="243" width="419" height="628" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1590862568450" />
+    <state x="623" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1590758163741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="623" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1591021391720" />
