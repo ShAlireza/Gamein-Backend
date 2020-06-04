@@ -20,6 +20,7 @@ services:
     restart: always
     depends_on:
       - gamein_backend_rabbitmq
+      - postgres
     environment:
       DJANGO_SETTINGS_MODULE: "gamein_backend.settings.production"
     command: >
@@ -51,3 +52,23 @@ services:
     volumes:
       - ./static/:/static/
       - ./media/:/media/
+
+  postgres:
+    restart: always
+    image: postgres:latest
+    volumes_from:
+      - data
+    volumes:
+      - ./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./backups/postgresql:/backup
+    env_file:
+      - env
+    expose:
+      - "5432"
+
+  data:
+    restart: always
+    image: alpine
+    volumes:
+      - /var/lib/postgresql
+    command: "true"
