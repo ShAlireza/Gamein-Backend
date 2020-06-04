@@ -21,6 +21,7 @@ class HomepageView(GenericAPIView):
 
 
 class StaffsView(GenericAPIView):
+    serializer_class = StaffSerializer
     def get(self, request):
         data = {
             'staffs': StaffSerializer(Staff.objects.all(), many=True).data

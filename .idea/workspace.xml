@@ -38,6 +38,20 @@
   <component name="ChangeListManager">
     <list default="true" id="6957c229-385b-4544-902a-80edf2d155ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/homepage/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homepage/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/homepage/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homepage/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/homepage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/homepage/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamein_backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamein_backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/gamein_backend/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
+      <change beforePath="$PROJECT_DIR$/apps/accounts/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/accounts/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/accounts/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/views.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
       <change beforePath="$PROJECT_DIR$/apps/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/accounts/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/emails/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/emails/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/emails/migrations/0001_initial.py" beforeDir="false" />
@@ -169,6 +183,20 @@
       <option name="presentableId" value="Default" />
       <updated>1590523199067</updated>
       <workItem from="1590523202439" duration="120000" />
+      <workItem from="1590650893318" duration="29000" />
+      <workItem from="1590650959358" duration="512000" />
+      <workItem from="1590651515630" duration="89000" />
+      <workItem from="1590651628137" duration="14515000" />
+      <workItem from="1590681389220" duration="7335000" />
+      <workItem from="1590736250160" duration="16214000" />
+      <workItem from="1590766466386" duration="2095000" />
+      <workItem from="1590861931731" duration="2155000" />
+      <workItem from="1590871457003" duration="4785000" />
+      <workItem from="1590884755798" duration="299000" />
+      <workItem from="1590885071778" duration="5115000" />
+      <workItem from="1590949656160" duration="10939000" />
+      <workItem from="1590973949373" duration="744000" />
+      <workItem from="1591008843412" duration="13032000" />
       <workItem from="1590574938865" duration="610000" />
       <workItem from="1590664845014" duration="2813000" />
       <workItem from="1590684395717" duration="2523000" />
@@ -267,6 +295,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="555" y="181" width="808" height="731" key="#Plugins/0.0.1920.1080@0.0.1920.1080" timestamp="1590651843832" />
+    <state x="752" y="230" key="#Web_Browsers" timestamp="1591012039390">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="752" y="230" key="#Web_Browsers/0.0.1920.1080@0.0.1920.1080" timestamp="1591012039390" />
     <state x="769" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1590664777649">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -279,22 +311,37 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="743" y="270" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1590652194267" />
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1590862011903">
     <state x="743" y="290" width="464" height="525" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1591042384521" />
     <state width="937" height="275" key="GridCell.Tab.0.bottom" timestamp="1590666241324">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="937" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1590666241324" />
-    <state width="937" height="275" key="GridCell.Tab.0.center" timestamp="1590666241323">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1590862011903" />
+    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1590862011902">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="937" height="275" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1590666241323" />
-    <state width="937" height="275" key="GridCell.Tab.0.left" timestamp="1590666241322">
+    <state width="1874" height="275" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1590862011902" />
+    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1590862011901">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="937" height="275" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1590666241322" />
-    <state width="937" height="275" key="GridCell.Tab.0.right" timestamp="1590666241323">
+    <state width="1874" height="275" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1590862011901" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1590862011903">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state width="1874" height="275" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1590862011903" />
+    <state x="457" y="162" key="SettingsEditor" timestamp="1590652225330">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="457" y="162" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1590652225330" />
+    <state x="781" y="210" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1591012501283">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="781" y="210" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1591012501283" />
+    <state x="664" y="260" width="687" height="554" key="find.popup" timestamp="1591021670431">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="664" y="260" width="687" height="554" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1591021670431" />
+    <state x="623" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1591021391720">
     <state width="937" height="275" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1590666241323" />
     <state x="457" y="185" width="1007" height="737" key="SettingsEditor" timestamp="1591042385411">
       <screen x="0" y="27" width="1920" height="1053" />
@@ -308,6 +355,9 @@
     <state x="623" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1590758163741">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1590758163741" />
+    <state x="623" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1591021391720" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Gamein_Backend$manage.coverage" NAME="manage Coverage Results" MODIFIED="1590861997102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

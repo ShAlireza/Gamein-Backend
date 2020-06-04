@@ -70,6 +70,9 @@ class ResendActivationEmailAPIView(GenericAPIView):
 
 
 class ActivateAccountAPIView(GenericAPIView):
+    
+    def get(self, request, eid, token):
+        pass
     serializer_class = ActivateUserTokenSerializer
 
     def post(self, request):
