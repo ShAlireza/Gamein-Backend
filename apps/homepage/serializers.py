@@ -63,3 +63,8 @@ class StaffTeamSerializer(ModelSerializer):
     class Meta:
         model = StaffTeam
         fields = '__all__'
+
+class VideoSerializer(ModelSerializer):
+    class Meta:
+        model = Video
+        fields = '__all__'

@@ -76,3 +76,10 @@ class StaffTeamAdmin(admin.ModelAdmin):
     list_display = ['team_name', 'head']
     list_display_links = ['team_name']
     search_fields = ['team_name', 'head',]
+
+
+@admin.register(Video)
+class VideoAdmin(admin.ModelAdmin):
+    list_display = ['title', 'video']
+    search_fields = ['title']
+    list_editable = ['video']

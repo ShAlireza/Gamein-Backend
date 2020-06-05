@@ -10,6 +10,7 @@ class HomepageView(GenericAPIView):
     def get(self, request):
         data = {
             'about': AboutSerializer(About.objects.all(), many=True).data,
+            'videos': VideoSerializer(Video.objects.all(), many=True).data,
             'statistics': StatisticsSerializer(Statistics.objects.all(), many=True).data,
             'events': EventSerializer(Event.objects.all(), many=True).data,
             'winners': WinnerSerializer(Winner.objects.all(), many=True).data,
@@ -31,3 +32,5 @@ class StaffsView(GenericAPIView):
     def get(self, request):
         data = {'teams': StaffTeamSerializer(StaffTeam.objects.all(), many=True).data}
         return Response(data)
+
+

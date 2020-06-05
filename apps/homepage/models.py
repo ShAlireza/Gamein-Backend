@@ -21,11 +21,17 @@ class Staff(models.Model):
 
 
 class Sponsor(models.Model):
+    def upload_path(self, filename):
+        ext = filename.split('.')[-1]
+        return f'sponsor_pictures/{self.name}.{ext}'
     SponsorClass = models.TextChoices('Sponsor Class', '1 2 3')
     name = models.CharField(max_length=100)
     sponsor_class = models.CharField(max_length=100, choices=SponsorClass.choices)
-    picture = models.ImageField(upload_to="sponsor_pictures")
+    picture = models.ImageField(upload_to=upload_path)
     site_url = models.URLField('WebSite')
+
+    def __str__(self):
+        return self.name
 
 
 class Winner(models.Model):
@@ -38,11 +44,16 @@ class Quote(models.Model):
     quoter = models.CharField(max_length=100, default='ناشناس')
     context = models.TextField()
 
+    def __str__(self):
+        return  self.quoter + 'نقل از '
 
 class Event(models.Model):
     title = models.CharField(max_length=100)
     persian_date = models.CharField(max_length=50)
     date = models.DateTimeField()
+
+    def __str__(self):
+        return self.title
 
 
 class Statistics(models.Model):
@@ -52,9 +63,16 @@ class Statistics(models.Model):
 
 
 class Social(models.Model):
+    def upload_path(self, filename):
+        ext = filename.split('.')[-1]
+        return f'social_icons/{self.name}.{ext}'
+
     name = models.CharField(max_length=100, blank=True)
     url = models.URLField()
-    icon = models.ImageField(upload_to='social_icons')
+    icon = models.ImageField(upload_to=upload_path, storage=OverwriteStorage())
+
+    def __str__(self):
+        return self.name
 
 
 class About(models.Model):
@@ -68,3 +86,14 @@ class StaffTeam(models.Model):
 
     def __str__(self):
         return self.team_name
+
+
+class Video(models.Model):
+    def upload_path(self, filename):
+        ext = filename.split('.')[-1]
+        return f'home_page_videos/{self.title}.{ext}'
+    title = models.CharField(max_length=100)
+    video = models.FileField(upload_to=upload_path, storage=OverwriteStorage())
+
+    def __str__(self):
+        return self.video.path
