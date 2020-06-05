@@ -22,11 +22,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 from decouple import config
 from .martor import *
 
-SECRET_KEY = config('SECRET_KEY_VALUE', default='-f0-b=j=ph$dyki-ijnf)tw1v^!x$75ll!#apr!gzv&fcg7b$!')
+SECRET_KEY = config('SECRET_KEY_VALUE',
+                    default='-f0-b=j=ph$dyki-ijnf)tw1v^!x$75ll!#apr!gzv&fcg7b$!')
 
 DEBUG = config('DEBUG_VALUE', default=True, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1 localhost').split(' ')
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1 localhost').split(
+    ' ')
 
 # Application definition
 
@@ -53,6 +55,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -139,7 +142,7 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.CursorPagination',
     'PAGE_SIZE': 100,
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' ,
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 }
 
 DOMAIN = config('DOMAIN')
