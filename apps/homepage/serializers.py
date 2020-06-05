@@ -53,3 +53,8 @@ class SocialSerializer(ModelSerializer):
     class Meta:
         model = Social
         fields = '__all__'
+
+class StaffTeamSerializer(ModelSerializer):
+    class Meta:
+        model = StaffTeam
+        fields = '__all__'

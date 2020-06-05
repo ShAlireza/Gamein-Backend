@@ -3,21 +3,21 @@ from .storage import OverwriteStorage
 
 
 class Staff(models.Model):
-    TeamNames = models.TextChoices('Team Name', 'Site Idea others')
-
-    # TODO: complete all teams' names
 
     def upload_path(self, filename):
         ext = filename.split('.')[-1]
         return f'staff_pictures/{self.team}/{self.name}_{self.last_name}.{ext}'
 
-    team = models.CharField(max_length=64, choices=TeamNames.choices)
     name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
+    team = models.ForeignKey('StaffTeam', on_delete=models.SET_NULL, null=True, blank=True)
     picture = models.ImageField(upload_to=upload_path, storage=OverwriteStorage(),
                                 default='staff_pictures/profile.jpg', blank=True)
     role = models.CharField(max_length=20, blank=True)
     linked_in_url = models.URLField('Linked-in', blank=True)
+
+    def __str__(self):
+        return self.name + ' ' + self.last_name
 
 
 class Sponsor(models.Model):
@@ -60,3 +60,11 @@ class Social(models.Model):
 class About(models.Model):
     title = models.CharField(max_length=100, blank=True)
     context = models.TextField()
+
+
+class StaffTeam(models.Model):
+    team_name = models.CharField(max_length=100)
+    head = models.OneToOneField(Staff, on_delete=models.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        return self.team_name

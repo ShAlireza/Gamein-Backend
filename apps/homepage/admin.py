@@ -69,3 +69,10 @@ class AboutAdmin(admin.ModelAdmin):
     list_display = ['title', 'context']
     list_editable = ('context',)
     search_fields = ['title']
+
+
+@admin.register(StaffTeam)
+class StaffTeamAdmin(admin.ModelAdmin):
+    list_display = ['team_name', 'head']
+    list_display_links = ['team_name']
+    search_fields = ['team_name', 'head',]
