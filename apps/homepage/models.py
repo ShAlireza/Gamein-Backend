@@ -45,7 +45,7 @@ class Quote(models.Model):
     context = models.TextField()
 
     def __str__(self):
-        return  self.quoter + 'نقل از '
+        return  'نقل از ' + self.quoter
 
 class Event(models.Model):
     title = models.CharField(max_length=100)
@@ -96,4 +96,4 @@ class Video(models.Model):
     video = models.FileField(upload_to=upload_path, storage=OverwriteStorage())
 
     def __str__(self):
-        return self.video.path
+        return self.title
