@@ -68,3 +68,8 @@ class VideoSerializer(ModelSerializer):
     class Meta:
         model = Video
         fields = '__all__'
+
+class FAQSerializer(ModelSerializer):
+    class Meta:
+        model = FAQ
+        fields = '__all__'

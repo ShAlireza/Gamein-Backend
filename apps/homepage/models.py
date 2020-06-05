@@ -51,6 +51,7 @@ class Event(models.Model):
     title = models.CharField(max_length=100)
     persian_date = models.CharField(max_length=50)
     date = models.DateTimeField()
+    countdownable = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
@@ -97,3 +98,10 @@ class Video(models.Model):
 
     def __str__(self):
         return self.title
+
+class FAQ(models.Model):
+    question = models.CharField(max_length=500)
+    answer = models.TextField()
+
+    def __str__(self):
+        return self.question[:10] + '...'
