@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'drf_yasg',
     'apps.education',
+    'apps.resources'
 ]
 
 MIDDLEWARE = [
