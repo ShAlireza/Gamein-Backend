@@ -1,0 +1,51 @@
+version: '3.7'
+   
+services:
+  postgres_db:
+    build:
+      context:  ./postgres
+      args:
+        - postgresdb=${DB_NAME}
+        - postgresuser=${DB_USER}
+        - postgrespass=${DB_PASSWORD}
+    container_name: postgres_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+      - media_volume:/app/Gamein/media
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+  backend_web:
+    build: .
+    container_name: backend_web
+    restart: always
+    command: >
+      sh -c "
+        ./manage.py migrate;
+        ./manage.py collectstatic --noinput;
+        gunicorn --bind=0.0.0.0:8181 --timeout=90 --workers=10 --preload gamein_backend.wsgi:application; 
+       "
+    volumes:
+      - static_volume:/app/Gamein/collected_static
+      - media_volume:/app/Gamein/media
+    ports:
+      - 8181:8181
+    depends_on:
+      - postgres_db
+    env_file:
+      - .env
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    volumes:
+      - static_volume:/app/Gamein/collected_static
+      - media_volume:/app/Gamein/media
+    depends_on:
+      - backend_web
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:

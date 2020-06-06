@@ -1,0 +1,6 @@
+docker-compose.yml
+Dockerfile
+collected_static
+media
+nginx/Dockerfile
+postgres/Dockerfile
