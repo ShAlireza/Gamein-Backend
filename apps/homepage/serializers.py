@@ -22,7 +22,6 @@ class EventSerializer(ModelSerializer):
         fields = '__all__'
 
 
-
 class WinnerSerializer(ModelSerializer):
     class Meta:
         model = Winner
@@ -30,9 +29,14 @@ class WinnerSerializer(ModelSerializer):
 
 
 class StaffSerializer(ModelSerializer):
-
     class Meta:
         model = Staff
+        fields = '__all__'
+
+
+class StaffTeamSerializer(ModelSerializer):
+    class Meta:
+        model = StaffTeam
         fields = '__all__'
 
 
@@ -51,4 +55,20 @@ class QuoteSerializer(ModelSerializer):
 class SocialSerializer(ModelSerializer):
     class Meta:
         model = Social
+        fields = '__all__'
+
+
+class StaffTeamSerializer(ModelSerializer):
+    class Meta:
+        model = StaffTeam
+        fields = '__all__'
+
+class VideoSerializer(ModelSerializer):
+    class Meta:
+        model = Video
+        fields = '__all__'
+
+class FAQSerializer(ModelSerializer):
+    class Meta:
+        model = FAQ
         fields = '__all__'
