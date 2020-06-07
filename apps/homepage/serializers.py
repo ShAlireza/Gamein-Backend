@@ -1,3 +1,4 @@
+from drf_yasg.utils import swagger_serializer_method
 from rest_framework import serializers
 
 from .models import *
@@ -58,17 +59,24 @@ class SocialSerializer(ModelSerializer):
         fields = '__all__'
 
 
-class StaffTeamSerializer(ModelSerializer):
-    class Meta:
-        model = StaffTeam
-        fields = '__all__'
-
 class VideoSerializer(ModelSerializer):
     class Meta:
         model = Video
         fields = '__all__'
 
+
 class FAQSerializer(ModelSerializer):
     class Meta:
         model = FAQ
         fields = '__all__'
+
+
+class HomepageSerializer(ModelSerializer):
+
+    class Meta:
+        model = Homepage
+        fields = '__all__'
+        depth = 3
+
+
+
