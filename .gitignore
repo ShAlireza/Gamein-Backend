@@ -96,9 +96,14 @@ db.sqlite3
 *.xml
 venv/
 env
+.idea/workspace.xml
 
 *.jpg
 *.png
 *.jpe
 
+.directory
+
+Gamein_data/
+collected_static/
 
