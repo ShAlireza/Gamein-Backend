@@ -28,17 +28,21 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = (
-            'first_name', 'last_name', 'username', 'university', 'birth_date',
-            'phone_number', 'major'
+            'university', 'birth_date', 'phone_number', 'major',
+            'hide_profile_info'
         )
+
         extra_kwargs = {
-            'phone_number': {'write_only': True}
+            'phone_number': {'write_only': True},
+            'hide_profile_info': {'read_only': True}
         }
+
+    def create(self, validated_data):
+        self.validated_data['user'] = self.context['request'].user
+        return Profile.objects.create(**self.validated_data)
 
 
 class UserSignUpSerializer(serializers.ModelSerializer):
-    profile = ProfileSerializer()
-
     email = serializers.EmailField(
         validators=[UniqueValidator(queryset=User.objects.all())])
     first_name = serializers.CharField(max_length=30, required=True)
@@ -50,8 +54,7 @@ class UserSignUpSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (
-            'first_name', 'last_name', 'email', 'password', 'password_repeat',
-            'profile', 'username')
+            'first_name', 'last_name', 'email', 'password', 'password_repeat')
 
     def validate(self, data):
         if data['password'] != data['password_repeat']:
@@ -60,6 +63,7 @@ class UserSignUpSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         profile_data = validated_data.pop('profile')
+        validated_data['username'] = validated_data['email']
         validated_data.pop('password_repeat')
         validated_data['password'] = make_password(
             validated_data.pop('password'))

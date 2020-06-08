@@ -15,9 +15,6 @@ class Profile(UUIDModel, TimeStampedModel):
     phone_number = models.CharField(max_length=32)
     major = models.CharField(max_length=128)
     hide_profile_info = models.BooleanField(default=False)
-    role = models.ForeignKey('education.Role', related_name='profiles',
-                             on_delete=models.DO_NOTHING, blank=True,
-                             null=True)
 
     def __str__(self):
         return self.user.get_full_name()

@@ -48,6 +48,19 @@ class SignUpAPIView(GenericAPIView):
         )
 
 
+class CompleteProfileInfoAPIView(GenericAPIView):
+    serializer_class = ProfileSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
 class ResendActivationEmailAPIView(GenericAPIView):
     serializer_class = EmailSerializer
 
