@@ -64,6 +64,8 @@ class EmailTemplateField(models.Model):
 
 
 class Email(models.Model):
+    TEMPLATE_FIELDS_SPLITTER = '\s?\n?\$\$\s?\n?'
+
     template = models.OneToOneField(to=EmailTemplate, on_delete=models.CASCADE)
     subject = models.CharField(blank=True, null=True, max_length=100)
     values_of_fields = models.TextField(blank=False, null=False)
@@ -73,17 +75,3 @@ class Email(models.Model):
 
     def __str__(self):
         return self.subject
-
-    def save(self, force_insert=False, force_update=False, using=None,
-             update_fields=None):
-        context = dict()
-        email_values = re.split('\s?\n?\$\$\s?\n?', self.values_of_fields)
-        template_fields = self.template.emailtemplatefield_set.all().values_list('field_name', flat=True)
-        for (field, value) in zip(template_fields, email_values):
-            context[field] = value
-            self.template.emailtemplatefield_set.filter(field_name=field).update(field_value=value)
-        if not self.subject:
-            self.subject = context.get('subject')
-        self.html_context = self.template.html
-        self.text_context = self.template.text
-        super().save(force_insert, force_update, using, update_fields)

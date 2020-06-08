@@ -7,13 +7,14 @@ from django.utils.translation import ngettext
 from martor.widgets import AdminMartorWidget
 
 from apps.accounts.models import Profile
+from apps.emails.forms import EmailRecipientsForm
 from apps.emails.models import Email, EmailTemplate, EmailTemplateKeywords
 from apps.emails.tasks import SendEmailTask
 
 
 @admin.register(Email)
 class EmailAdmin(admin.ModelAdmin):
-    exclude = ('html_context', 'text_context')
+    exclude = ('html_context', 'text_context', 'recipients')
     formfield_overrides = {
         models.TextField: {'widget': AdminMartorWidget},
     }
@@ -94,6 +95,14 @@ class EmailAdmin(admin.ModelAdmin):
         for KEYWORD, VALUE in EmailTemplateKeywords.KEYWORDS:
             if email_keyword == KEYWORD:
                 return '{{ ' + VALUE + ' }}'
+
+    def save_form(self, request, form, change):
+        return super().save_form(request, form, change)
+
+    def get_form(self, request, obj=None, change=False, **kwargs):
+        if request.user.is_superuser:
+            kwargs['form'] = EmailRecipientsForm
+        return super().get_form(request, obj, **kwargs)
 
     send_emails.short_description = "Send selected emails"
 
