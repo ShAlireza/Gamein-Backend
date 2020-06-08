@@ -14,7 +14,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     last_name = serializers.SerializerMethodField('_get_last_name')
     username = serializers.SerializerMethodField('_get_username')
     username_write = serializers.CharField(max_length=150,
-                                           validators=username_validator)
+                                           validators=(username_validator,))
 
     @staticmethod
     def _get_first_name(profile: Profile):
