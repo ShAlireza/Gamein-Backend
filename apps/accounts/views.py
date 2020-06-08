@@ -12,6 +12,8 @@ from .serializers import (UserSignUpSerializer, EmailSerializer,
                           ActivateUserTokenSerializer,
                           ChangePasswordSerializer, ProfileSerializer)
 
+from .permissions import HasCompletedProfile
+
 
 # Create your views here.
 
@@ -159,7 +161,7 @@ class ChangePasswordAPIView(GenericAPIView):
 
 
 class ToggleProfileInfoVisibilityAPIView(GenericAPIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, HasCompletedProfile)
 
     def put(self, request):
         profile = request.user.profile
@@ -173,7 +175,7 @@ class ToggleProfileInfoVisibilityAPIView(GenericAPIView):
 
 
 class ProfileInfoAPIView(GenericAPIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, HasCompletedProfile)
     serializer_class = ProfileSerializer
 
     def get(self, request, username):

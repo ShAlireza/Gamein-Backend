@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 
+from .validators import username_validator
 from .models import Profile, ResetPasswordToken, ActivateUserToken
 from .exceptions import PasswordsNotMatch, WrongPassword
 
@@ -12,6 +13,8 @@ class ProfileSerializer(serializers.ModelSerializer):
     first_name = serializers.SerializerMethodField('_get_first_name')
     last_name = serializers.SerializerMethodField('_get_last_name')
     username = serializers.SerializerMethodField('_get_username')
+    username_write = serializers.CharField(max_length=150,
+                                           validators=username_validator)
 
     @staticmethod
     def _get_first_name(profile: Profile):
@@ -28,17 +31,23 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = (
-            'university', 'birth_date', 'phone_number', 'major',
+            'first_name', 'last_name', 'university', 'birth_date',
+            'phone_number', 'major', 'username_write',
             'hide_profile_info'
         )
 
         extra_kwargs = {
             'phone_number': {'write_only': True},
-            'hide_profile_info': {'read_only': True}
+            'hide_profile_info': {'read_only': True},
+            'username_write': {'write_only': True}
         }
 
     def create(self, validated_data):
-        self.validated_data['user'] = self.context['request'].user
+        user = self.context['request'].user
+        self.validated_data['user'] = user
+        user.username = self.validated_data['username_write']
+        user.save()
+        self.validated_data.pop('username_write')
         return Profile.objects.create(**self.validated_data)
 
 
