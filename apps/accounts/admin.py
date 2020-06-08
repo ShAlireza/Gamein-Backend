@@ -7,9 +7,9 @@ from .models import Profile, ResetPasswordToken, ActivateUserToken
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('university', 'major', 'hide_profile_info', 'role')
+    list_display = ('university', 'major', 'hide_profile_info')
     search_fields = ('university', 'major')
-    list_filter = ('university', 'major', 'role')
+    list_filter = ('university', 'major')
 
 
 @admin.register(ResetPasswordToken)
