@@ -44,10 +44,12 @@ class QuoteAdmin(admin.ModelAdmin):
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('title', 'persian_date', 'date')
+    list_display = ('title', 'persian_date', 'date', 'countdownable')
     list_display_links = ('title', )
-    list_editable = ('persian_date', 'date')
+    list_editable = ('persian_date', 'date', 'countdownable')
     search_fields = ['title']
+    sortable_by = ['date']
+    list_filter = ['countdownable']
 
 
 @admin.register(Statistics)
@@ -69,3 +71,23 @@ class AboutAdmin(admin.ModelAdmin):
     list_display = ['title', 'context']
     list_editable = ('context',)
     search_fields = ['title']
+
+
+@admin.register(StaffTeam)
+class StaffTeamAdmin(admin.ModelAdmin):
+    list_display = ['team_name', 'head']
+    list_display_links = ['team_name']
+    search_fields = ['team_name', 'head',]
+
+
+@admin.register(Video)
+class VideoAdmin(admin.ModelAdmin):
+    list_display = ['title', 'video']
+    search_fields = ['title']
+    list_editable = ['video']
+
+@admin.register(FAQ)
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ['question', 'answer']
+    list_editable = ['answer']
+    search_fields = ['question', 'answer']
