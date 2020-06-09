@@ -105,3 +105,19 @@ class FAQ(models.Model):
 
     def __str__(self):
         return self.question[:10] + '...'
+
+
+class Homepage(models.Model):
+    about = models.OneToOneField(to=About, on_delete=models.CASCADE)
+    videos = models.OneToOneField(to=Video, on_delete=models.CASCADE)
+    statistics = models.OneToOneField(to=Statistics, on_delete=models.CASCADE)
+    faq = models.OneToOneField(to=FAQ, on_delete=models.CASCADE)
+    # coming_soon = models.OneToOneField(to=Event, on_delete=models.CASCADE)
+    events = models.OneToOneField(to=Event, on_delete=models.CASCADE)
+    winners = models.OneToOneField(to=Winner, on_delete=models.CASCADE)
+    staffs = models.OneToOneField(to=Staff, on_delete=models.CASCADE)
+    sponsors = models.OneToOneField(to=Sponsor, on_delete=models.CASCADE)
+    quotes = models.OneToOneField(to=Quote, on_delete=models.CASCADE)
+    socials = models.OneToOneField(to=Social, on_delete=models.CASCADE)
+    register_count = models.IntegerField()
+

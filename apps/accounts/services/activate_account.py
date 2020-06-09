@@ -15,7 +15,8 @@ class ActivateAccount:
         self.eid: str = eid
         self.token: str = token
         self._activate_user_token = get_object_or_404(ActivateUserToken,
-                                                      eid=eid, token=token)
+                                                      eid=eid, token=token,
+                                                      used=False)
         self._email = urlsafe_base64_decode(eid).decode('utf-8')
 
     def activate(self):
@@ -29,4 +30,4 @@ class ActivateAccount:
 
         user.is_active = True
         user.save()
-        self._activate_user_token.delete()
+        self._activate_user_token.make_used()

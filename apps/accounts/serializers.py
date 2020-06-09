@@ -2,22 +2,56 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 
 from rest_framework import serializers
-from rest_framework.generics import get_object_or_404
 from rest_framework.validators import UniqueValidator
 
+from .validators import username_validator
 from .models import Profile, ResetPasswordToken, ActivateUserToken
 from .exceptions import PasswordsNotMatch, WrongPassword
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    first_name = serializers.SerializerMethodField('_get_first_name')
+    last_name = serializers.SerializerMethodField('_get_last_name')
+    username = serializers.SerializerMethodField('_get_username')
+    username_write = serializers.CharField(max_length=150,
+                                           validators=(username_validator,))
+
+    @staticmethod
+    def _get_first_name(profile: Profile):
+        return profile.user.first_name
+
+    @staticmethod
+    def _get_last_name(profile: Profile):
+        return profile.user.last_name
+
+    @staticmethod
+    def _get_username(profile: Profile):
+        return profile.user.username
+
     class Meta:
         model = Profile
-        fields = ('university', 'birth_date', 'phone_number', 'major')
+        fields = (
+            'first_name', 'last_name', 'university', 'birth_date',
+            'phone_number', 'major', 'username', 'username_write',
+            'hide_profile_info'
+        )
+
+        extra_kwargs = {
+            'phone_number': {'write_only': True},
+            'hide_profile_info': {'read_only': True},
+            'username_write': {'write_only': True}
+        }
+
+    def create(self, validated_data):
+        user = self.context['request'].user
+        self.validated_data['user'] = user
+        user.username = self.validated_data['username_write']
+        user.save()
+        self.validated_data.pop('username_write')
+        return Profile.objects.create(**self.validated_data)
 
 
 class UserSignUpSerializer(serializers.ModelSerializer):
-    profile = ProfileSerializer()
-
     email = serializers.EmailField(
         validators=[UniqueValidator(queryset=User.objects.all())])
     first_name = serializers.CharField(max_length=30, required=True)
@@ -29,8 +63,7 @@ class UserSignUpSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (
-            'first_name', 'last_name', 'email', 'password', 'password_repeat',
-            'profile')
+            'first_name', 'last_name', 'email', 'password', 'password_repeat')
 
     def validate(self, data):
         if data['password'] != data['password_repeat']:
@@ -38,8 +71,8 @@ class UserSignUpSerializer(serializers.ModelSerializer):
         return data
 
     def create(self, validated_data):
-        validated_data['username'] = validated_data['email']
         profile_data = validated_data.pop('profile')
+        validated_data['username'] = validated_data['email']
         validated_data.pop('password_repeat')
         validated_data['password'] = make_password(
             validated_data.pop('password'))

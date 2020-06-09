@@ -1,13 +1,24 @@
 from django.shortcuts import render
+from drf_yasg import openapi
 from rest_framework.generics import GenericAPIView
+from rest_framework.viewsets import GenericViewSet
 from .serializers import *
 from rest_framework.response import Response
 from apps.accounts.models import *
-from drf_yasg.utils import swagger_auto_schema
+from drf_yasg.utils import swagger_auto_schema, swagger_serializer_method
 
 
 class HomepageView(GenericAPIView):
+    serializer_class = [FAQSerializer, AboutSerializer]
+
+    @swagger_auto_schema(
+        operation_description="Returns all needed Inf. for Homepage",
+        responses={200: openapi.Response(description="Homepage is not the response and it is just a dictionary",
+                                         schema=HomepageSerializer)},
+        tags=['Homepage'],
+    )
     def get(self, request):
+        homepage = Homepage()
         data = {
             'about': AboutSerializer(About.objects.all(), many=True).data,
             'videos': VideoSerializer(Video.objects.all(), many=True).data,
@@ -31,8 +42,11 @@ class HomepageView(GenericAPIView):
 
 
 class StaffsView(GenericAPIView):
-    serializer_class = StaffTeamSerializer
 
+    @swagger_auto_schema(
+        operation_description="Returns all Staffs divided by their teams",
+        responses={200: StaffTeamSerializer(many=True)},
+        tags=['Homepage'],
+    )
     def get(self, request):
-        data = {'teams': StaffTeamSerializer(StaffTeam.objects.all(), many=True).data}
-        return Response(data)
+        return Response(StaffTeamSerializer(StaffTeam.objects.all(), many=True).data)
