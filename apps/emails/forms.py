@@ -1,14 +1,22 @@
-import re
-
-from django.forms import ModelForm, forms
+from django import forms
 
 from apps.accounts.models import Profile
 from apps.emails.models import Email
 
+import re
 
-class EmailRecipientsForm(ModelForm):
+
+class EmailRecipientsForm(forms.ModelForm):
     EMAILS_FILE_SPLIT_PATTERN = '[\r]?[\n]?'
+
+    NONE_OF_THESE = 'none_of_these'
+    ALL = 'all'
+    OPTIONS_CHOICES = [
+        (NONE_OF_THESE, 'None Of These'),
+        (ALL, 'All'),
+    ]
     recipients_file = forms.FileField(allow_empty_file=True, required=False)
+    recipients_options = forms.ChoiceField(choices=OPTIONS_CHOICES, widget=forms.RadioSelect, label='Send Email to')
 
     class Meta:
         model = Email
@@ -29,17 +37,25 @@ class EmailRecipientsForm(ModelForm):
         return super().save(commit)
 
     def _save_m2m(self):
+        option = self.cleaned_data['recipients_options']
+        if option and option != self.NONE_OF_THESE:
+            if option == self.ALL:
+                self.set_all_users_as_recipient(self.instance)
         file = self.cleaned_data['recipients_file']
         if file:
             for chunk in file.chunks():
                 emails = self.get_emails_from_file_chunk(chunk.decode('utf-8'))
-                self.set_emails_recipients(self.instance, emails)
+                self.get_recipients_users_by_email_addresses(self.instance, emails)
         super(EmailRecipientsForm, self)._save_m2m()
 
     def get_emails_from_file_chunk(self, chunk):
         return re.split(self.EMAILS_FILE_SPLIT_PATTERN, chunk)
 
-    def set_emails_recipients(self, email: Email, recipients: list):
+    def get_recipients_users_by_email_addresses(self, email: Email, recipients: list):
         for recipient in recipients:
             recipient_profile = Profile.objects.filter(user__email=recipient).first()
             email.recipients.add(recipient_profile)
+
+    def set_all_users_as_recipient(self, email):
+        all_users = Profile.objects.all()
+        [email.recipients.add(user) for user in all_users]
