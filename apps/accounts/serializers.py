@@ -32,7 +32,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = Profile
         fields = (
             'first_name', 'last_name', 'university', 'birth_date',
-            'phone_number', 'major', 'username_write',
+            'phone_number', 'major', 'username', 'username_write',
             'hide_profile_info'
         )
 
