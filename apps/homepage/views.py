@@ -13,7 +13,8 @@ class HomepageView(GenericAPIView):
             'videos': VideoSerializer(Video.objects.all(), many=True).data,
             'statistics': StatisticsSerializer(Statistics.objects.all(), many=True).data,
             'faq': FAQSerializer(FAQ.objects.all(), many=True).data,
-            'coming_soon': EventSerializer(Event.objects.all().filter(countdownable=True).order_by('date').first()).data,
+            'coming_soon': EventSerializer(
+                Event.objects.all().filter(countdownable=True).order_by('date').first()).data,
             'events': EventSerializer(Event.objects.all().order_by('date'), many=True).data,
             'winners': WinnerSerializer(Winner.objects.all(), many=True).data,
             'staffs': StaffSerializer(Staff.objects.all().order_by('?')[:5], many=True).data,
@@ -31,8 +32,7 @@ class HomepageView(GenericAPIView):
 
 class StaffsView(GenericAPIView):
     serializer_class = StaffTeamSerializer
+
     def get(self, request):
         data = {'teams': StaffTeamSerializer(StaffTeam.objects.all(), many=True).data}
         return Response(data)
-
-

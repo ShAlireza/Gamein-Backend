@@ -84,7 +84,7 @@ class About(models.Model):
 class StaffTeam(models.Model):
     team_name = models.CharField(max_length=100)
     head = models.OneToOneField(Staff, on_delete=models.SET_NULL, null=True, blank=True)
-
+    
     def __str__(self):
         return self.team_name
 
