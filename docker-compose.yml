@@ -2,13 +2,8 @@ version: '3.7'
    
 services:
   postgres_db:
-    build:
-      context:  ./postgres
-      args:
-        - postgresdb=${DB_NAME}
-        - postgresuser=${DB_USER}
-        - postgrespass=${DB_PASSWORD}
-    container_name: postgres_db
+    image: postgres:latest
+    container_name: postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data/
       - media_volume:/app/Gamein/media
@@ -16,9 +11,13 @@ services:
       - "5432:5432"
     env_file:
       - .env
-  backend_web:
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+  web:
     build: .
-    container_name: backend_web
+    container_name: web
     restart: always
     command: >
       sh -c "
@@ -38,6 +37,7 @@ services:
       - .env
   nginx:
     image: nginx:latest
+    container_name: nginx
     restart: always
     ports:
       - 80:80
@@ -46,7 +46,7 @@ services:
       - media_volume:/app/Gamein/media
       - ./nginx:/etc/nginx/conf.d
     depends_on:
-      - backend_web
+      - web
 
 volumes:
   postgres_data:
