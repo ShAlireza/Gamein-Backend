@@ -2,11 +2,13 @@ import re
 
 from django.forms import ModelForm, forms
 
+from apps.accounts.models import Profile
 from apps.emails.models import Email
 
 
 class EmailRecipientsForm(ModelForm):
-    recipients_file = forms.FileField(allow_empty_file=True)
+    EMAILS_FILE_SPLIT_PATTERN = '[\r]?[\n]?'
+    recipients_file = forms.FileField(allow_empty_file=True, required=False)
 
     class Meta:
         model = Email
@@ -25,3 +27,18 @@ class EmailRecipientsForm(ModelForm):
         instance.html_context = instance.template.html
         instance.text_context = instance.template.text
         return super().save(commit)
+
+    def _save_m2m(self):
+        file = self.cleaned_data['recipients_file']
+        for chunk in file.chunks():
+            emails = self.get_emails_from_file_chunk(chunk.decode('utf-8'))
+            self.set_emails_recipients(self.instance, emails)
+        super(EmailRecipientsForm, self)._save_m2m()
+
+    def get_emails_from_file_chunk(self, chunk):
+        return re.split(self.EMAILS_FILE_SPLIT_PATTERN, chunk)
+
+    def set_emails_recipients(self, email: Email, recipients: list):
+        for recipient in recipients:
+            recipient_profile = Profile.objects.filter(user__email=recipient).first()
+            email.recipients.add(recipient_profile)
