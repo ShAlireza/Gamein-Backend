@@ -30,9 +30,10 @@ class EmailRecipientsForm(ModelForm):
 
     def _save_m2m(self):
         file = self.cleaned_data['recipients_file']
-        for chunk in file.chunks():
-            emails = self.get_emails_from_file_chunk(chunk.decode('utf-8'))
-            self.set_emails_recipients(self.instance, emails)
+        if file:
+            for chunk in file.chunks():
+                emails = self.get_emails_from_file_chunk(chunk.decode('utf-8'))
+                self.set_emails_recipients(self.instance, emails)
         super(EmailRecipientsForm, self)._save_m2m()
 
     def get_emails_from_file_chunk(self, chunk):
