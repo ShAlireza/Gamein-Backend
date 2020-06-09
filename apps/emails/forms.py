@@ -10,13 +10,15 @@ class EmailRecipientsForm(forms.ModelForm):
     EMAILS_FILE_SPLIT_PATTERN = '[\r]?[\n]?'
 
     NONE_OF_THESE = 'none_of_these'
-    ALL = 'all'
+    ALL = 'all_users'
     OPTIONS_CHOICES = [
         (NONE_OF_THESE, 'None Of These'),
-        (ALL, 'All'),
+        (ALL, 'All Of The Users'),
     ]
     recipients_file = forms.FileField(allow_empty_file=True, required=False)
-    recipients_options = forms.ChoiceField(choices=OPTIONS_CHOICES, widget=forms.RadioSelect, label='Send Email to')
+    recipients_options = forms.ChoiceField(choices=OPTIONS_CHOICES, widget=forms.RadioSelect,
+                                           required=False,
+                                           label='Send Email to')
 
     class Meta:
         model = Email
