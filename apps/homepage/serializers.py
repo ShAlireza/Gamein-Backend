@@ -36,9 +36,11 @@ class StaffSerializer(ModelSerializer):
 
 
 class StaffTeamSerializer(ModelSerializer):
+    staff_set = StaffSerializer(many=True, read_only=True)
+
     class Meta:
         model = StaffTeam
-        fields = '__all__'
+        fields = ['team_name', 'head', 'staff_set']
 
 
 class SponsorSerializer(ModelSerializer):
@@ -72,11 +74,7 @@ class FAQSerializer(ModelSerializer):
 
 
 class HomepageSerializer(ModelSerializer):
-
     class Meta:
         model = Homepage
         fields = '__all__'
         depth = 3
-
-
-

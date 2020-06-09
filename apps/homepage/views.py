@@ -18,7 +18,6 @@ class HomepageView(GenericAPIView):
         tags=['Homepage'],
     )
     def get(self, request):
-        homepage = Homepage()
         data = {
             'about': AboutSerializer(About.objects.all(), many=True).data,
             'videos': VideoSerializer(Video.objects.all(), many=True).data,
@@ -43,10 +42,14 @@ class HomepageView(GenericAPIView):
 
 class StaffsView(GenericAPIView):
 
+    def get_queryset(self):
+        return StaffTeam.objects.all()
+
     @swagger_auto_schema(
         operation_description="Returns all Staffs divided by their teams",
         responses={200: StaffTeamSerializer(many=True)},
         tags=['Homepage'],
     )
     def get(self, request):
-        return Response(StaffTeamSerializer(StaffTeam.objects.all(), many=True).data)
+        return Response(StaffTeamSerializer(self.get_queryset(), many=True).data)
+
