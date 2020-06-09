@@ -66,7 +66,7 @@ class EmailTemplateField(models.Model):
 class Email(models.Model):
     TEMPLATE_FIELDS_SPLITTER = '\s?\n?\$\$\s?\n?'
 
-    template = models.OneToOneField(to=EmailTemplate, on_delete=models.CASCADE)
+    template = models.ForeignKey(to=EmailTemplate, on_delete=models.CASCADE)
     subject = models.CharField(blank=True, null=True, max_length=100)
     values_of_fields = models.TextField(blank=False, null=False)
     html_context = models.TextField()
