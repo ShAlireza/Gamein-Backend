@@ -22,12 +22,13 @@ services:
     restart: always
     command: >
       sh -c "
+        ./manage.py makemigrations;
         ./manage.py migrate;
         ./manage.py collectstatic --noinput;
         gunicorn --bind=0.0.0.0:8181 --timeout=90 --workers=10 --preload gamein_backend.wsgi:application; 
        "
     volumes:
-      - static_volume:/app/Gamein/collected_static
+      - static_volume:/app/Gamein/static
       - media_volume:/app/Gamein/media
     ports:
       - 8181:8181
@@ -36,12 +37,14 @@ services:
     env_file:
       - .env
   nginx:
-    build: ./nginx
+    image: nginx:latest
+    restart: always
     ports:
       - 80:80
     volumes:
-      - static_volume:/app/Gamein/collected_static
+      - static_volume:/app/Gamein/static
       - media_volume:/app/Gamein/media
+      - ./nginx:/etc/nginx/conf.d
     depends_on:
       - backend_web
 
