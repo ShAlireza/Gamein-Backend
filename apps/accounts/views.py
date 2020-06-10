@@ -10,7 +10,9 @@ from rest_framework import status
 from .serializers import (UserSignUpSerializer, EmailSerializer,
                           ResetPasswordConfirmSerializer,
                           ActivateUserTokenSerializer,
-                          ChangePasswordSerializer)
+                          ChangePasswordSerializer, ProfileSerializer)
+
+from .permissions import HasCompletedProfile
 
 
 # Create your views here.
@@ -46,6 +48,19 @@ class SignUpAPIView(GenericAPIView):
             data={'details': _('Activation email sent, check your email')},
             status=status.HTTP_200_OK
         )
+
+
+class CompleteProfileInfoAPIView(GenericAPIView):
+    serializer_class = ProfileSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 class ResendActivationEmailAPIView(GenericAPIView):
@@ -135,7 +150,7 @@ class ResetPasswordConfirmAPIView(GenericAPIView):
 
 class ChangePasswordAPIView(GenericAPIView):
     serializer_class = ChangePasswordSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request):
         serializer = self.get_serializer(data=request.data)
@@ -146,3 +161,28 @@ class ChangePasswordAPIView(GenericAPIView):
             data={'details': _('Password changed successfully')},
             status=status.HTTP_200_OK
         )
+
+
+class ToggleProfileInfoVisibilityAPIView(GenericAPIView):
+    permission_classes = (IsAuthenticated, HasCompletedProfile)
+
+    def put(self, request):
+        profile = request.user.profile
+        profile.hide_profile_info = not profile.hide_profile_info
+        profile.save()
+
+        return Response(
+            data={'details': _('Profile updated successfully')},
+            status=status.HTTP_200_OK
+        )
+
+
+class ProfileInfoAPIView(GenericAPIView):
+    permission_classes = (IsAuthenticated, HasCompletedProfile)
+    serializer_class = ProfileSerializer
+
+    def get(self, request, username):
+        user = get_object_or_404(User, username=username)
+        data = self.get_serializer(user.profile).data
+
+        return Response(data={'profile': data}, status=status.HTTP_200_OK)
